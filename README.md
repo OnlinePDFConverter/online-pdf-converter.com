@@ -13,15 +13,14 @@ Online PDF Converter is a browser-first collection of tools for converting, edit
 - Process files in the browser with Web Workers, WebAssembly, PDF.js, PyMuPDF, and LibreOffice WASM
 - Generate localized pages and routes through the internationalized build system
 
-## Technology Stack
+## Third-party software
 
-- JavaScript
-- Webpack 5 and Webpack Dev Server
-- Gulp
-- PDF.js, pdf-lib, and jsPDF
-- Pyodide and PyMuPDF
-- LibreOffice WebAssembly
-- Tesseract.js
+- [Ghostscript](https://www.ghostscript.com/) and the bundled Ghostscript WebAssembly integration — AGPL-3.0.
+- [PyMuPDF](https://pymupdf.io/) and MuPDF — AGPL-3.0.
+- [pdf2docx](https://github.com/ArtifexSoftware/pdf2docx) — AGPL-3.0.
+- [PDF.js](https://mozilla.github.io/pdf.js/) — Apache-2.0.
+- [pdf-lib](https://pdf-lib.js.org/) — MIT.
+- [Tesseract.js](https://tesseract.projectnaptha.com/) — Apache-2.0.
 
 ## Local Development
 
