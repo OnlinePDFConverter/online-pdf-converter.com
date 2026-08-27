@@ -1,0 +1,65 @@
+<%
+const tool = 'split_pdf';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/converter.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.pdf',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFile'),
+    chooseText: locale.get('button.choosePDFFile'),
+    enableSettings: true
+}) %>
+
+<div>
+    <div class="fs-13 mb-10">
+        <%= locale.get('page.split_pdf.prompt') %>
+    </div>
+    <div>
+        <label class="option-radio">
+            <input type="radio" name="split-mode" value="range" checked>
+            <span>
+                <strong class="label"><%= locale.get('page.split_pdf.modeRange') %></strong>
+                <div>
+                    <input type="text" name="split-range" class="input input-sm input-border" value="" placeholder="1-3, 7, 12-15">
+                </div>
+                <small class="mt-5"><%= locale.get('page.split_pdf.modeRangeDesc') %></small>
+            </span>
+        </label>
+        <label class="option-radio mt-15">
+            <input type="radio" name="split-mode" value="every_page">
+            <span>
+                <strong class="label"><%= locale.get('page.split_pdf.modeEveryPage') %></strong>
+                <small><%= locale.get('page.split_pdf.modeEveryPageDesc') %></small>
+            </span>
+        </label>
+        <label class="option-radio mt-15">
+            <input type="radio" name="split-mode" value="every_n">
+            <span>
+                <strong class="label"><%= locale.get('page.split_pdf.modeEveryN') %></strong>
+                <div>
+                    <input type="number" name="split-every-n" class="input input-sm input-border" min="1" step="1" value="5">
+                </div>
+                <small class="mt-5"><%= locale.get('page.split_pdf.modeEveryNDesc') %></small>
+            </span>
+        </label>
+        <label class="option-radio mt-15">
+            <input type="radio" name="split-mode" value="odd">
+            <span>
+                <strong class="label"><%= locale.get('page.split_pdf.modeOdd') %></strong>
+                <small><%= locale.get('page.split_pdf.modeOddDesc') %></small>
+            </span>
+        </label>
+        <label class="option-radio mt-15">
+            <input type="radio" name="split-mode" value="even">
+            <span>
+                <strong class="label"><%= locale.get('page.split_pdf.modeEven') %></strong>
+                <small><%= locale.get('page.split_pdf.modeEvenDesc') %></small>
+            </span>
+        </label>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<%
+const tool = 'ocr_pdf';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/converter.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.pdf',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFile'),
+    chooseText: locale.get('button.choosePDFFile'),
+    enableSettings: true
+}) %>
+
+
+<div>
+    <div>
+        <div class="label"><%= locale.get('page.ocr_pdf.languages') %></div>
+        <select class="input input-border fs-14" multiple data-ocr-languages>
+            <option value="eng" selected>English</option>
+            <option value="chi_sim" selected>Chinese (Simplified)</option>
+            <option value="chi_tra">Chinese (Traditional)</option>
+            <option value="jpn">Japanese</option>
+            <option value="kor">Korean</option>
+            <option value="spa">Spanish</option>
+            <option value="fra">French</option>
+            <option value="deu">German</option>
+            <option value="por">Portuguese</option>
+            <option value="ara">Arabic</option>
+        </select>
+        <p class="text-muted fs-12 mt-5"><%= locale.get('page.ocr_pdf.languagesHelp') %></p>
+    </div>
+
+    <div class="mt-25">
+        <div class="label"><%= locale.get('page.ocr_pdf.outputFormat') %></div>
+        <select class="input input-border" data-ocr-output-format>
+            <option value="searchable-pdf" selected><%= locale.get('page.ocr_pdf.searchablePdf') %></option>
+            <option value="text"><%= locale.get('page.ocr_pdf.textFile') %></option>
+        </select> 
+    </div>
+
+    <div class="mt-25">
+        <div class="label"><%= locale.get('page.ocr_pdf.accuracy') %></div>
+        <select class="input input-border" data-ocr-scale>
+            <option value="2"><%= locale.get('page.ocr_pdf.accuracyStandard') %></option>
+            <option value="3" selected><%= locale.get('page.ocr_pdf.accuracyHigh') %></option>
+            <option value="4"><%= locale.get('page.ocr_pdf.accuracyUltra') %></option>
+        </select>
+    </div>
+</div>

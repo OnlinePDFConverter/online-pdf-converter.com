@@ -1,0 +1,71 @@
+<%
+const tool = 'page_numbers';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/converter.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.pdf',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFile'),
+    chooseText: locale.get('button.choosePDFFile'),
+    enableSettings: true
+}) %>
+
+<div>
+    <div class="d-grid gap-15 grid-col-2">
+        <div>
+            <span class="label"><%= locale.get('page.page_numbers.position') %></span>
+            <select class="input input-border" data-page-numbers-position>
+                <option value="bottom-center" selected><%= locale.get('page.page_numbers.positionBottomCenter') %></option>
+                <option value="bottom-left"><%= locale.get('page.page_numbers.positionBottomLeft') %></option>
+                <option value="bottom-right"><%= locale.get('page.page_numbers.positionBottomRight') %></option>
+                <option value="top-center"><%= locale.get('page.page_numbers.positionTopCenter') %></option>
+                <option value="top-left"><%= locale.get('page.page_numbers.positionTopLeft') %></option>
+                <option value="top-right"><%= locale.get('page.page_numbers.positionTopRight') %></option>
+            </select>
+        </div>
+
+        <div>
+            <span class="label"><%= locale.get('page.page_numbers.format') %></span>
+            <select class="input input-border" data-page-numbers-format>
+                <option value="{page}" selected>1</option>
+                <option value="Page {page}"><%= locale.get('page.page_numbers.formatPage') %></option>
+                <option value="{page} / {total}">1 / 10</option>
+                <option value="Page {page} of {total}"><%= locale.get('page.page_numbers.formatPageOfTotal') %></option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="d-grid gap-15 grid-col-2 mt-25">
+        <div>
+            <span class="label"><%= locale.get('page.page_numbers.startPage') %></span>
+            <input type="number" min="1" value="1" class="input input-border" data-page-numbers-start-page>
+        </div>
+
+        <div>
+            <span class="label"><%= locale.get('page.page_numbers.startNumber') %></span>
+            <input type="number" min="0" value="1" class="input input-border" data-page-numbers-start-number>
+        </div>
+    </div>
+
+    <div class="d-grid gap-15 grid-col-2 mt-25">
+        <div>
+            <span class="label"><%= locale.get('page.page_numbers.fontSize') %></span>
+            <input type="number" min="6" max="72" value="12" class="input input-border" data-page-numbers-font-size>
+        </div>
+
+        <div>
+            <span class="label"><%= locale.get('page.page_numbers.margin') %></span>
+            <input type="number" min="0" max="144" value="36" class="input input-border" data-page-numbers-margin>
+        </div>
+    </div>
+
+    <div class="mt-25">
+        <span class="label"><%= locale.get('page.page_numbers.color') %></span>
+        <input type="color" value="#333333" class="input input-border page-numbers-color" data-page-numbers-color>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<%
+const tool = 'extract_pages';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/converter.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.pdf',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFile'),
+    chooseText: locale.get('button.choosePDFFile'),
+    enableSettings: true
+}) %>
+
+<div>
+    <div>
+        <label class="option-radio">
+            <input type="radio" name="range-mode" value="range" checked>
+            <span>
+                <strong class="label"><%= locale.get('page.extract_pages.modeRange') %></strong>
+                <div>
+                    <input type="text" name="pages-range" class="input input-sm input-border" value="" placeholder="1-3, 7, 12-15">
+                </div>
+                <small class="mt-5"><%= locale.get('page.extract_pages.modeRangeDesc') %></small>
+            </span>
+        </label>
+        <label class="option-radio mt-15">
+            <input type="radio" name="range-mode" value="odd">
+            <span>
+                <strong class="label"><%= locale.get('page.extract_pages.modeOdd') %></strong>
+                <small><%= locale.get('page.extract_pages.modeOddDesc') %></small>
+            </span>
+        </label>
+        <label class="option-radio mt-15">
+            <input type="radio" name="range-mode" value="even">
+            <span>
+                <strong class="label"><%= locale.get('page.extract_pages.modeEven') %></strong>
+                <small><%= locale.get('page.extract_pages.modeEvenDesc') %></small>
+            </span>
+        </label>
+    </div>
+</div>

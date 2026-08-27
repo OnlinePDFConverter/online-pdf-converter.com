@@ -1,0 +1,316 @@
+.pv-forms-secondary-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--pv-border);
+    background: #f8fbff;
+    box-sizing: border-box;
+}
+
+.pv-forms-secondary-toolbar[hidden] {
+    display: none;
+}
+
+.pv-forms-toggle.is-active,
+.pv-forms-toggle[aria-expanded="true"] {
+    color: #fff;
+    border-color: var(--pv-blue);
+    background: var(--pv-blue);
+}
+
+.pv-forms-tool {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 34px;
+    flex: 0 0 auto;
+    padding: 6px 9px;
+    border: 1px solid var(--pv-border);
+    border-radius: 5px;
+    color: var(--pv-text);
+    background: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.pv-forms-tool:hover,
+.pv-forms-tool.is-active,
+.pv-forms-tool[aria-pressed="true"] {
+    border-color: var(--pv-blue);
+    color: #fff;
+    background: var(--pv-blue);
+}
+
+.pv-forms-tool:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.pv-forms-tool-icon,
+.pv-forms-tool-icon svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.pv-forms-toolbar-divider {
+    width: 1px;
+    height: 26px;
+    flex: 0 0 auto;
+    background: var(--pv-border);
+}
+
+.pv-forms-grid-size {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    flex: 0 0 auto;
+}
+
+.pv-forms-grid-size input {
+    width: 42px;
+    height: 32px;
+    padding: 3px;
+    border: 1px solid var(--pv-border);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.pv-app.pv-forms-ready .pv-canvas-wrap {
+    cursor: crosshair;
+}
+
+.pv-page-overlay.pv-forms-grid-visible {
+    background-repeat: repeat;
+    background-size: var(--pv-forms-grid-size);
+    background-image:
+        linear-gradient(to right, rgba(17, 107, 255, .48) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(17, 107, 255, .48) 1px, transparent 1px);
+}
+
+.pv-forms-properties-panel {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    width: min(360px, calc(100% - 24px));
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--pv-border);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 16px 38px rgba(21, 43, 86, .2);
+    box-sizing: border-box;
+}
+
+.pv-forms-properties-panel[hidden] {
+    display: none;
+}
+
+.pv-forms-properties-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    min-height: 48px;
+    padding: 10px 12px 10px 16px;
+    border-bottom: 1px solid var(--pv-border);
+    background: #f8fbff;
+}
+
+.pv-forms-properties-header h3 {
+    margin: 0;
+    color: var(--pv-text);
+    font-size: 15px;
+}
+
+.pv-forms-properties-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    color: var(--pv-text);
+    background: transparent;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pv-forms-properties-close:hover {
+    color: var(--pv-blue);
+    background: var(--pv-soft);
+}
+
+.pv-forms-properties-body {
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.pv-forms-properties {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+    padding: 14px;
+}
+
+.pv-forms-property-error {
+    padding: 9px 10px;
+    border: 1px solid #ffc5c5;
+    border-radius: 5px;
+    color: #c92b2b;
+    background: #fff4f4;
+    font-size: 12px;
+}
+
+.pv-forms-property-error[hidden] {
+    display: none;
+}
+
+.pv-forms-property-section {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--pv-border);
+}
+
+.pv-forms-property-section[hidden],
+.pv-forms-properties [hidden] {
+    display: none !important;
+}
+
+.pv-forms-property-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.pv-forms-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+    color: var(--pv-text);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.pv-forms-field-wide {
+    grid-column: 1 / -1;
+}
+
+.pv-forms-field input:not([type="color"]),
+.pv-forms-field select,
+.pv-forms-field textarea {
+    width: 100%;
+    min-height: 36px;
+    padding: 7px 9px;
+    border: 1px solid var(--pv-border);
+    border-radius: 5px;
+    color: var(--pv-text);
+    background: #fff;
+    font: inherit;
+    font-weight: 400;
+}
+
+.pv-forms-field input:focus,
+.pv-forms-field select:focus,
+.pv-forms-field textarea:focus {
+    outline: 0;
+    border-color: var(--pv-blue);
+    box-shadow: 0 0 0 2px rgba(17, 107, 255, .12);
+}
+
+.pv-forms-field input[type="color"] {
+    width: 48px;
+    height: 34px;
+    padding: 3px;
+    border: 1px solid var(--pv-border);
+    border-radius: 5px;
+}
+
+.pv-forms-field small,
+.pv-forms-note {
+    margin: 0;
+    color: var(--pv-muted);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.pv-forms-field-error {
+    min-height: 0;
+    color: #e63838 !important;
+}
+
+.pv-forms-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 34px;
+    color: var(--pv-text);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.pv-forms-check input {
+    width: 16px;
+    height: 16px;
+}
+
+.pv-forms-barcode-preview {
+    display: flex;
+    justify-content: center;
+    min-height: 100px;
+    margin-top: 12px;
+    padding: 10px;
+    border: 1px dashed var(--pv-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.pv-forms-barcode-preview canvas {
+    max-width: 100%;
+    max-height: 130px;
+}
+
+.pv-forms-delete-field {
+    align-self: flex-start;
+}
+
+@media (max-width: 760px) {
+    .pv-forms-secondary-toolbar {
+        padding: 8px 10px;
+    }
+
+    .pv-forms-property-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pv-forms-field-wide {
+        grid-column: auto;
+    }
+
+    .pv-forms-properties-panel {
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+        width: min(360px, calc(100% - 16px));
+    }
+}

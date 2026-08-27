@@ -1,0 +1,99 @@
+/*! purgecss start ignore */
+.sliderbar-container {
+    position: fixed;
+    display: none;
+    z-index: 11;
+    background: #fff;
+    transition-property: all;
+    -webkit-transition-property: all;
+}
+
+.sliderbar-container.show {
+    display: block;
+}
+
+.sliderbar-overlay {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition-property: all;
+    -webkit-transition-property: all;
+    display: none;
+}
+
+.sliderbar-overlay.show {
+    display: block;
+}
+
+.sliderbar-overlay.on {
+    opacity: 1;
+}
+
+.sliderbar-right {
+    width: 300px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.sliderbar-right.on {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sliderbar-left {
+    width: 300px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+.sliderbar-left.on {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sliderbar-bottom {
+    width: 100%;
+    height: 300px;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+.sliderbar-bottom.on {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sliderbar-top {
+    width: 100%;
+    height: 300px;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+}
+
+.sliderbar-top.on {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+/*! purgecss end ignore */

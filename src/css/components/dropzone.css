@@ -1,0 +1,248 @@
+.dz-file-list {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.dz-error-mark,
+.dz-success-mark {
+    display: none;
+}
+
+.dz-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.dz-image > img {
+    max-width: 100%;
+    max-height: 125px;
+    border-radius: 4px;
+    transition: width .8s, height .8s;
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 14%);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.dz-size {
+    padding: 5px 0;
+}
+
+.dz-preview {
+    flex: 0 0 16.66666%;
+    max-width: 16.66666%;
+    padding: 10px;
+    position: relative;
+}
+
+.dz-preview-body {
+    padding: 10px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, .15);
+    background-color: var(--block-white-bg-color);
+    height: 250px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: background-color 300ms;
+}
+
+.dz-preview-body:hover {
+    background-color: #f4f4f4;
+}
+
+.dz-remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0;
+    background-color: #d6d4d2;
+    border-radius: 50%;
+    padding: 2px;
+    opacity: 0;
+}
+
+
+.dz-preview:hover .dz-remove,
+.file-wrapper:hover .dz-remove {
+    opacity: .8;
+}
+
+.dz-preview:hover .dz-remove:hover,
+.file-wrapper:hover .dz-remove:hover {
+    opacity: 1;
+    background-color: #f1404b;
+}
+
+.dz-preview:hover .dz-remove:hover::after,
+.file-wrapper:hover .dz-remove:hover::after {
+    background-image: url('../../assets/images/remove_white.svg');
+}
+
+.dz-remove::after {
+    content: " ";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url('../../assets/images/remove.svg');
+    background-size: 100% 100%;
+}
+
+.file-wrapper {
+    position: relative;
+}
+
+.file-wrapper .dz-remove {
+    top: -12px;
+    right: -12px;
+}
+
+.dz-filename {
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.dz-filename span {
+    display: inline-block;
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dz-preview.dz-complete .dz-progress {
+    opacity: 0;
+    -webkit-transition: opacity 0.4s ease-in;
+    -moz-transition: opacity 0.4s ease-in;
+    -ms-transition: opacity 0.4s ease-in;
+    -o-transition: opacity 0.4s ease-in;
+    transition: opacity 0.4s ease-in;
+}
+
+.dz-preview:not(.dz-processing) .dz-progress {
+    -webkit-animation: pulse 6s ease infinite;
+    -moz-animation: pulse 6s ease infinite;
+    -ms-animation: pulse 6s ease infinite;
+    -o-animation: pulse 6s ease infinite;
+    animation: pulse 6s ease infinite;
+}
+
+.dz-preview .dz-progress {
+    opacity: 0;
+    z-index: 1000;
+    pointer-events: none;
+    position: absolute;
+    height: 16px;
+    left: 50%;
+    top: 50%;
+    margin-top: -8px;
+    width: 80px;
+    margin-left: -40px;
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dz-preview.dz-processing .dz-progress {
+    opacity: 1;
+}
+
+.dz-preview.dz-success .dz-progress {
+    opacity: 0;
+}
+
+.dz-preview.dz-success {
+    border-color: #62c178;
+}
+
+.dz-preview .dz-progress .dz-upload {
+    background: #333;
+    background: linear-gradient(to bottom, #666, #444);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    -webkit-transition: width 300ms ease-in-out;
+    -moz-transition: width 300ms ease-in-out;
+    -ms-transition: width 300ms ease-in-out;
+    -o-transition: width 300ms ease-in-out;
+    transition: width 300ms ease-in-out;
+}
+
+@media (min-width: 1200px) {
+    
+}
+
+@media (max-width: 1550px) {
+    .dz-preview {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .dz-preview {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .dz-preview {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+@media (max-width: 850px) {
+    .dz-preview {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 570px) {
+    .dz-preview {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Brand refresh for legacy preview grids */
+.dz-preview-body {
+    border: 1px solid var(--brand-border);
+    border-radius: var(--brand-radius-md);
+    background: var(--brand-surface);
+    box-shadow: var(--brand-shadow-sm);
+}
+
+.dz-preview-body:hover {
+    background: var(--brand-primary-soft);
+}
+
+.dz-image > img {
+    border-radius: var(--brand-radius-sm);
+    box-shadow: 0 5px 14px rgba(23, 53, 47, .14);
+}
+
+.dz-remove {
+    background: var(--brand-primary-soft);
+}
+
+.dz-preview:hover .dz-remove:hover,
+.file-wrapper:hover .dz-remove:hover {
+    background: var(--brand-accent);
+}
+
+.dz-preview .dz-progress .dz-upload {
+    background: var(--brand-primary);
+}

@@ -1,0 +1,15 @@
+<%= require("../layouts/main_full_height.html")({htmlWebpackPlugin}) %>
+
+<div class="section">
+    <div class="max-w-960 mx-auto fs-16">
+        <div>
+            <h1><%= locale.get('page.contact.name') %></h1>
+        </div>
+
+        <div class="mt-30 pb-30">
+            <p class="desc mt-20">
+                <%= locale.get('page.contact.content', { email: CONTACT_EMAIL }) %>
+            </p>
+        </div>
+    </div>
+</div>

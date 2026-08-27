@@ -1,0 +1,1 @@
+import './images_to_pdf.worker.js';

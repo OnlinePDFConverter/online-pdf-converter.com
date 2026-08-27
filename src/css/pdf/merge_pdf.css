@@ -1,0 +1,91 @@
+.file-item {
+    cursor: move;
+}
+
+.merge-file-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.merge-page-count {
+    min-width: 58px;
+    color: var(--brand-muted);
+    font-size: 12px;
+    text-align: right;
+}
+
+.merge-order-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--brand-border);
+    border-radius: 6px;
+    background: var(--brand-surface);
+    color: var(--brand-ink);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.merge-order-btn:hover {
+    border-color: var(--brand-primary);
+    color: var(--brand-primary);
+    background: var(--brand-primary-soft);
+}
+
+.merge-order-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.merge-page-range {
+    display: grid;
+    gap: 6px;
+}
+
+.merge-page-range label {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.merge-page-range small {
+    font-size: 12px;
+}
+
+.merge-progress {
+    margin-top: 12px;
+}
+
+.merge-sort-chosen {
+    border-color: var(--brand-primary);
+    background: var(--brand-primary-soft);
+}
+
+.merge-sort-ghost {
+    opacity: 0.45;
+}
+
+.merge-sort-drag {
+    box-shadow: 0 10px 24px rgba(18, 109, 255, 0.16);
+}
+
+.merge-page-count,
+.merge-page-range small { color: var(--brand-muted); }
+.merge-order-btn,
+.merge-page-range {
+    border-color: var(--brand-border);
+    border-radius: var(--brand-radius-sm);
+    background: var(--brand-surface);
+    color: var(--brand-primary);
+}
+.merge-order-btn:hover,
+.merge-sort-chosen,
+.merge-sort-ghost {
+    border-color: var(--brand-primary);
+    background: var(--brand-primary-soft);
+    color: var(--brand-primary);
+}

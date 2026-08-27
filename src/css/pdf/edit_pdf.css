@@ -1,0 +1,7 @@
+.viewer-wrapper .pdf-viewer {
+    min-height: 620px;
+}
+
+@media (max-width: 720px) {
+    .viewer-wrapper .pdf-viewer { min-height: 520px; }
+}

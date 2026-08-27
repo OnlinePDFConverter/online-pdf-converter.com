@@ -1,0 +1,26 @@
+.pv-page-input {
+    width: 55px;
+    height: 35px;
+    border: 1px solid var(--pv-border);
+    border-radius: 6px;
+    color: var(--pv-text);
+    text-align: center;
+    outline: none;
+}
+
+.pv-page-input:disabled {
+    color: #94a3b8;
+    background: #f4f7fb;
+    cursor: not-allowed;
+}
+
+.pv-page-input:focus {
+    border-color: var(--pv-blue);
+    box-shadow: 0 0 0 1px var(--pv-blue);
+}
+
+.pv-page-total {
+    color: var(--pv-muted);
+    font-size: 13px;
+    white-space: nowrap;
+}

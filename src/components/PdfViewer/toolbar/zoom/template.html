@@ -1,0 +1,14 @@
+<%= button(icon.out, 'Zoom out', 'zoom-out') %>
+<select class="pv-zoom-select" data-pv-zoom-select title="Zoom">
+    <option value="custom" hidden><%= Math.round(scale * 100) %>%</option>
+    <option value="auto">Fit width</option>
+    <option value="0.35">35%</option>
+    <option value="0.5">50%</option>
+    <option value="0.75">75%</option>
+    <option value="1">100%</option>
+    <option value="1.25">125%</option>
+    <option value="1.5">150%</option>
+    <option value="2">200%</option>
+</select>
+<%= button(icon.in, 'Zoom in', 'zoom-in') %>
+<%= button(icon.fit, 'Fit width', 'fit') %>

@@ -1,0 +1,27 @@
+.pv-zoom-select {
+    height: 34px;
+    min-width: 104px;
+    border: 1px solid var(--pv-border);
+    border-radius: 7px;
+    color: var(--pv-text);
+    background: #ffffff;
+    font-size: 13px;
+    outline: none;
+}
+
+.pv-zoom-select:disabled {
+    color: #94a3b8;
+    background: #f4f7fb;
+    cursor: not-allowed;
+}
+
+.pv-zoom-select:focus {
+    border-color: var(--pv-blue);
+    box-shadow: 0 0 0 1px var(--pv-blue);
+}
+
+@media (max-width: 760px) {
+    .pv-zoom-select {
+        min-width: 90px;
+    }
+}

@@ -1,0 +1,70 @@
+<%
+const { locale, pageName, urlManager, messages } = htmlWebpackPlugin.options.templateParameters;
+%>
+<div id="_alert" class="_alert _alert-error d-hide">
+    <span></span>
+    <svg class="close" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path d="M934.382936 824.346821c30.593785 30.650067 30.593785 80.31521-0.056282 110.965278-15.268752 15.325034-35.361369 22.989597-55.452963 22.989597-20.094664 0-40.187281-7.664563-55.512315-22.989597L510.214331 622.154819 197.066261 935.312098c-15.325034 15.325034-35.417651 22.989597-55.512315 22.989597-20.092617 0-40.184211-7.664563-55.452963-22.989597-30.650067-30.650067-30.650067-80.31521-0.056282-110.965278l313.177745-313.190025L86.044702 197.966771c-30.593785-30.650067-30.593785-80.31521 0.056282-110.965278 30.537504-30.652114 80.31521-30.652114 110.965278 0L510.214331 400.158772 823.361377 87.001493c30.650067-30.652114 80.427774-30.652114 110.965278 0 30.650067 30.650067 30.650067 80.31521 0.056282 110.965278L621.205191 511.156796 934.382936 824.346821z"></path></svg>
+</div>
+
+<div id="_upgrade" class="d-hide" data-title="<%= locale.get('page.pricing.name') %>">
+    <div class="pb-30 pl-30 pr-30 pt-10">
+        <div class="tips tips-red mb-30">
+            <p class="err-filesize d-hide"><span class="upgrade-error-icon">×</span><%= locale.get('filesizeExceedsLimit') %></p>
+            <p class="err-filetask d-hide"><span class="upgrade-error-icon">×</span><%= locale.get('filetaskExceedsLimit') %></p>
+        </div>
+
+        <div class="text-center mb-30">
+            <h2 class="fs-22 fw-600"><%= locale.get('upgradeYourAccount') %></h2>
+        </div>
+
+        <div class="pricing-bill mt-10">
+            <div class="bill-wrapper">
+                <div class="bill" data-type="monthly"><%= locale.get('page.pricing.monthlyBill') %></div>
+                <div class="bill bill-year active" data-type="yearly"><%= locale.get('page.pricing.yearlyBill') %><div class="discount">-40%</div></div>
+            </div>
+        </div>
+
+        <div class="pricing-box my-60 mb-15">
+            <div class="price-wrapper">
+                <div class="price-item price-item-border text-center active" data-plan="premium" data-type="yearly" data-month="<%= PLANS.lv_1.price.month %>" data-year="<%= PLANS.lv_1.price.year %>">
+                    <div>
+                        <h3><%= locale.get('page.pricing.level_1') %></h3>
+                        <div>
+                            <div class="fs-16">
+                                <span class="price"><%= CURRENCY %><label><%= PLANS.lv_1.price.year / 12 %></label></span>
+                                <span> / <%= locale.get('page.pricing.month') %></span>
+                            </div>
+                            <div class="small"><%= locale.get('page.pricing.billedYearly', { price: CURRENCY + PLANS.lv_1.price.year }) %></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="price-wrapper">
+                <div class="price-item price-item-border text-center" data-plan="unlimited" data-type="yearly" data-month="<%= PLANS.lv_2.price.month %>" data-year="<%= PLANS.lv_2.price.year %>">
+                    <div>
+                        <h3><%= locale.get('page.pricing.level_2') %></h3>
+                        <div>
+                            <div class="fs-16">
+                                <span class="price"><%= CURRENCY %><label><%= PLANS.lv_2.price.year / 12 %></label></span>
+                                <span> / <%= locale.get('page.pricing.month') %></span>
+                            </div>
+                            <div class="small"><%= locale.get('page.pricing.billedYearly', { price: CURRENCY + PLANS.lv_2.price.year }) %></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="<%= urlManager.get('pricing') %>" class="btn btn-red btn-l-width"><%= locale.get('more') %></a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.LANG_CODE = '<%= locale.langCode %>';
+    window.LANG = <%= JSON.stringify(messages) %>;
+    window.PAGE_NAME = '<%= pageName %>';
+    window.TOOL_NAME = "<%= locale.get('page.' + pageName + '.name') %>";
+</script>
+

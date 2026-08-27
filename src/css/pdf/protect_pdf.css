@@ -1,0 +1,12 @@
+
+.protect-permission {
+    align-items: center;
+    border: 1px solid var(--brand-border);
+    border-radius: var(--brand-radius-sm);
+    background: var(--brand-surface);
+    color: var(--brand-ink);
+    display: flex;
+    gap: 10px;
+    min-height: 44px;
+    padding: 10px 12px;
+}

@@ -1,0 +1,54 @@
+<%= require("../layouts/main_full_height.html")({htmlWebpackPlugin}) %>
+
+<div class="ext-page ext-page-uninstall">
+    <div class="ext-page-inner">
+        <section class="ext-hero">
+            <div>
+                <img src="<%= ASSETS_URL %>images/uninstalled.png" class="ext-here-icon" />
+            </div>
+
+            <h1><%= locale.get('page.ext_uninstall.name') %></h1>
+            <p><%= locale.get('page.ext_uninstall.desc') %></p>
+
+            <div class="ext-actions">
+                <a href="<%= urlManager.get('index') %>" class="btn btn-blue blue-button">
+                    <%= locale.get('page.ext_uninstall.primaryButton') %>
+                </a>
+            </div>
+        </section>
+
+        <section class="ext-info-section">
+            <h2><%= locale.get('page.ext_uninstall.sectionTitle') %></h2>
+            <div class="ext-card-grid">
+                <% locale.get('page.ext_uninstall.items').forEach(function(item, index) { %>
+                    <article class="ext-info-card">
+                        <span class="ext-card-icon ext-card-icon-<%= index + 1 %>" aria-hidden="true">
+                            <% if (index === 0) { %>
+                                <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm6.6 8h-3.1a13.5 13.5 0 0 0-1.1-4.4A7 7 0 0 1 18.6 11ZM12 5.1c.6.9 1.2 2.1 1.5 3.9h-3c.3-1.8.9-3 1.5-3.9ZM5.4 13h3.1c.2 1.7.6 3.2 1.1 4.4A7 7 0 0 1 5.4 13Zm3.1-2H5.4a7 7 0 0 1 4.2-4.4A13.5 13.5 0 0 0 8.5 11Zm3.5 7.9c-.6-.9-1.2-2.1-1.5-3.9h3c-.3 1.8-.9 3-1.5 3.9Zm1.9-5.9h-3.8a12.4 12.4 0 0 1 0-2h3.8a12.4 12.4 0 0 1 0 2Zm.5 4.4c.5-1.2.9-2.7 1.1-4.4h3.1a7 7 0 0 1-4.2 4.4Z" /></svg>
+                            <% } else if (index === 1) { %>
+                                <svg viewBox="0 0 24 24"><path d="M3 7a3 3 0 0 1 3-3h4l2 2h6a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7Zm2 3v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7H5Z" /></svg>
+                            <% } else { %>
+                                <svg viewBox="0 0 24 24"><path d="M5 5h14v10H8l-3 3V5Zm3 4v2h8V9H8Zm0 4h5v-2H8v2Z" /></svg>
+                            <% } %>
+                        </span>
+                        <h3><%= item.title %></h3>
+                        <p><%= item.desc %></p>
+                    </article>
+                <% }); %>
+            </div>
+        </section>
+
+        <section class="ext-callout ext-callout-uninstall">
+            <span class="ext-callout-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 7h-2.2A3 3 0 0 0 12 5.8 3 3 0 0 0 6.2 7H4v5h1v8h14v-8h1V7Zm-6.1-1.1A1 1 0 0 1 15.6 7H13V6.8c.2-.4.5-.7.9-.9ZM8.4 7a1 1 0 0 1 1.7-1.1c.4.2.7.5.9.9V7H8.4ZM7 12h4v6H7v-6Zm6 6v-6h4v6h-4Z" /></svg>
+            </span>
+            <div>
+                <h2><%= locale.get('page.ext_uninstall.tipTitle') %></h2>
+                <p><%= locale.get('page.ext_uninstall.tipDesc') %></p>
+            </div>
+            <a href="<%= urlManager.get('index') %>" class="btn btn-orange-outline ext-orange-button">
+                <%= locale.get('page.ext_uninstall.tipButton') %>
+            </a>
+        </section>
+    </div>
+</div>

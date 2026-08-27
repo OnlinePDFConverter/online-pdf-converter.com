@@ -1,0 +1,7 @@
+location / {
+    add_header Content-Security-Policy "frame-ancestors 'self'";
+    add_header X-Frame-Options "SAMEORIGIN";
+    if (!-e $request_filename) {
+        rewrite (?i)^([^.]+)$ $1.html last;
+    }
+}

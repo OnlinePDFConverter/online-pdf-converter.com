@@ -1,0 +1,56 @@
+<%= require("../layouts/main.html")({htmlWebpackPlugin}) %>
+<%
+const securityPage = locale.get('page.security');
+%>
+
+<div class="section">
+    <div class="max-w-960 mx-auto">
+        <h1><%= securityPage.heroTitle %></h1>
+        <p class="text-muted fs-18 mt-15"><%= securityPage.heroDesc %></p>
+        <div class="mt-30 d-flex gap-15 flex-wrap">
+            <a href="<%= urlManager.get('index') %>" class="btn btn-blue blue-button btn-md"><%= securityPage.ctaPrimary %></a>
+            <a href="<%= urlManager.get('privacy') %>" class="btn btn-blue-outline btn-md"><%= securityPage.ctaSecondary %></a>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="max-w-960 mx-auto">
+        <div class="d-grid grid-col-2 grid-col-sm-1 gap-25">
+            <% securityPage.sections.forEach(function(item) { %>
+                <div class="card p-30">
+                    <h2 class="fs-20"><%= item.title %></h2>
+                    <p class="text-muted mt-10"><%= item.desc %></p>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="max-w-960 mx-auto mt-50">
+        <div class="card p-30">
+            <h2><%= securityPage.safetyTitle %></h2>
+            <ul class="sequence mt-15">
+                <% securityPage.safetyItems.forEach(function(item) { %>
+                    <li><%= item %></li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="max-w-960 mx-auto">
+        <h2 class="text-center mt-50"><%= securityPage.faq %></h2>
+        <div class="faq-list mt-30">
+            <% securityPage.faqItems.forEach(function(item, index) { %>
+                <details <% if (index == 0) { %>open<% } %>>
+                    <summary><%= item.title %></summary>
+                    <p><%= item.desc %></p>
+                </details>
+            <% }); %>
+        </div>
+    </div>
+</div>

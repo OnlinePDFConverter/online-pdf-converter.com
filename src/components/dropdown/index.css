@@ -1,0 +1,98 @@
+/*! purgecss start ignore */
+.__select {
+    border-radius: 5px;
+    border: 1px solid #dadce0;
+    height: 36px;
+    padding: 2px 0px 2px 6px;
+    display: none;
+    align-items: center;
+    background-color: #ffffff;
+    transition: background-color 200ms;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.__select_inited {
+    display: flex;
+}
+
+.__select_no_border {
+    border: none;
+}
+
+.__select ._show {
+    display: block !important;
+}
+
+.__select::after {
+    content: url(./__arrow_down.svg);
+    width: 8px;
+    padding: 0 10px 0 6px;
+    position: relative;
+    top: 1px;
+}
+
+.__select:hover {
+    background-color: #f1f3f4;
+}
+
+.__select span {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.__select > ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 100%;
+    width: max-content;
+    max-height: 300px;
+    overflow: auto;
+    background: #ffffff;
+    padding: 5px 0;
+    box-shadow: 0 2px 5px 0 rgb(50 50 50 / 30%);
+    scrollbar-width: thin;
+}
+
+.__select > ul::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.__select > ul > li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 15px;
+    height: 40px;
+    transition: background-color 200ms;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.__select > ul > li:hover {
+    background-color: #f1f3f4;
+}
+
+.__select > div.__selected {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.__select > ul > li.__selected {
+    /* background-color: #e8f0fe; */
+    background-color: #f1f3f4;
+}
+
+.__select > div.__selected > .__icon,
+.__select > ul > li > .__icon {
+    margin-right: 8px;
+    height: 18px;
+}
+/*! purgecss end ignore */

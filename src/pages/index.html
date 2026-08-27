@@ -1,0 +1,253 @@
+<%= require("./layouts/main.html")({htmlWebpackPlugin}) %>
+<%
+const popularToolIds = ['word_to_pdf', 'compress_pdf', 'sign_pdf', 'pdf_to_word', 'edit_pdf'];
+const popularTools = popularToolIds.map(id => tools.get(id)).filter(Boolean);
+const assurances = locale.get('page.index.assurances');
+const whyChooseItems = locale.get('page.index.whyChooseItems');
+const quickConverter = locale.get('page.index.quickConverter');
+const editorial = locale.get('page.index.editorial');
+%>
+<div class="banner-box">
+    <div class="max-w-1440 mx-auto d-flex align-items-center">
+        <div class="banner-content w-full">
+            <h1><%= locale.get('page.index.heroTitle') %></h1>
+            <p><%= locale.get('page.index.heroDesc') %></p>
+            <div class="mt-50">
+                <div class="banner-actions wp-sm-100">
+                    <a href="<%= urlManager.get('allTools') %>" class="btn btn-blue blue-button all-tools">
+                        <%= locale.get('page.index.allToolsButton') %>
+                    </a>
+                </div>
+            </div>
+            <div class="banner-assurances flex-column-sm align-items-center-sm">
+                <% assurances.forEach(function(item) { %>
+                    <div class="assurances-item">
+                        <div class="assurances-icon">✓</div>
+                        <div>
+                            <div class="assurances-strong"><%= item.title %></div>
+                            <div class="assurances-small"><%= item.desc %></div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+
+        <div class="w-full w-md-12 mt-md-30 d-flex justify-content-center">
+            <div class="quick-converter-card ml-md-0"
+                data-quick-converter
+                data-invalid-pdf="<%= quickConverter.invalidPdf %>"
+                data-invalid-pdf-target="<%= quickConverter.invalidPdfTarget %>"
+                data-storage-error="<%= quickConverter.storageError %>"
+                data-loading-text="<%= quickConverter.loading %>"
+                data-pdf-only="<%= quickConverter.pdfOnly %>"
+                data-supported-to-pdf="<%= quickConverter.supportedToPdf %>">
+                <div class="quick-converter-heading">
+                    <span><%= quickConverter.title %></span>
+                </div>
+
+                <div class="quick-converter-dropzone" data-quick-dropzone tabindex="0" role="button">
+                    <input type="file" data-quick-file accept=".pdf" />
+                    <div class="quick-converter-empty" data-quick-empty>
+                        <div>
+                            <img src="/assets/images/add-file.svg" class="img-80 mb-5">
+                        </div>
+                        <strong><%= locale.get('upload.dropFile') %></strong>
+                        <span><%= locale.get('upload.or') %></span>
+                        <button type="button" class="quick-converter-choose" data-quick-choose data-quick-action>
+                            <%= locale.get('button.chooseFile') %>
+                        </button>
+                    </div>
+                    <div class="quick-converter-selected d-hide" data-quick-selected>
+                        <img src="/assets/images/add-file.svg" class="quick-converter-selected-icon" alt="" />
+                        <div class="quick-converter-file-meta">
+                            <strong data-quick-file-name></strong>
+                            <span data-quick-file-size></span>
+                        </div>
+                        <div class="quick-converter-file-actions">
+                            <button type="button" class="quick-converter-reselect" data-quick-reselect data-quick-action>
+                                <%= locale.get('button.chooseFile') %>
+                            </button>
+                            <button type="button" class="quick-converter-remove" data-quick-remove data-quick-action>×</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-converter-controls">
+                    <label class="quick-converter-target">
+                        <span><%= quickConverter.convertTo %></span>
+                        <select data-quick-target>
+                            <option value="pdf" selected>PDF</option>
+                            <option value="word" data-tool="pdf_to_word" data-url="<%= urlManager.get('pdf_to_word') %>">Word</option>
+                            <option value="excel" data-tool="pdf_to_excel" data-url="<%= urlManager.get('pdf_to_excel') %>">Excel</option>
+                            <option value="ppt" data-tool="pdf_to_ppt" data-url="<%= urlManager.get('pdf_to_ppt') %>">PPT</option>
+                            <option value="jpg" data-tool="pdf_to_jpg" data-url="<%= urlManager.get('pdf_to_jpg') %>">JPG</option>
+                            <option value="png" data-tool="pdf_to_png" data-url="<%= urlManager.get('pdf_to_png') %>">PNG</option>
+                        </select>
+                    </label>
+                    <button type="button" class="btn btn-blue quick-converter-submit" data-quick-submit>
+                        <span data-quick-submit-text class="w-full fw-700 fs-14"><%= quickConverter.next %></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="quick-converter-icon"><path d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"></path></svg>
+                    </button>
+                </div>
+                <p class="quick-converter-note" data-quick-note><%= quickConverter.pdfOnly %></p>
+                <p class="quick-converter-error" data-quick-error role="alert" aria-live="polite"></p>
+                <div class="d-hide"
+                    data-pdf-route-word_to_pdf="<%= urlManager.get('word_to_pdf') %>"
+                    data-pdf-route-excel_to_pdf="<%= urlManager.get('excel_to_pdf') %>"
+                    data-pdf-route-ppt_to_pdf="<%= urlManager.get('ppt_to_pdf') %>"
+                    data-pdf-route-images_to_pdf="<%= urlManager.get('images_to_pdf') %>"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popular-tools" class="section">
+    <div class="max-w-1440 mx-auto">
+        <div>
+            <h2 class="text-center"><%= locale.get('page.index.popularTools') %></h2>
+        </div>
+        <div class="d-grid gap-15 grid-col-5 grid-col-lg-4 grid-col-md-3 grid-col-smd-2 grid-col-sm-1 mt-30">
+            <% popularTools.forEach(function(item) { %>
+                <div class="card">
+                    <a href="<%= urlManager.get(item.id) %>" class="tool-item tool-item-big">
+                        <div class="tool-icon"><img src="<%= item.icon %>" /></div>
+                        <div class="tool-content">
+                            <h3 class="tool-title"><%= item.name %></h3>
+                            <p class="tool-desc"><%= locale.get('page.' + item.id + '.desc') %></p>
+                        </div>
+                    </a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+<div class="section home-editorial-browser">
+    <div class="max-w-1440 mx-auto home-editorial-row">
+        <div class="home-editorial-copy">
+            <div class="home-editorial-eyebrow"><%= editorial.browser.eyebrow %></div>
+            <h2><%= editorial.browser.title %></h2>
+            <% editorial.browser.paragraphs.forEach(function(paragraph) { %>
+                <p><%= paragraph %></p>
+            <% }); %>
+            <ul class="home-editorial-highlights">
+                <% editorial.browser.highlights.forEach(function(item) { %>
+                    <li><%= item %></li>
+                <% }); %>
+            </ul>
+        </div>
+        <div class="home-editorial-illustration">
+            <img src="<%= ASSETS_URL %>images/img.webp" loading="lazy" />
+        </div>
+    </div>
+</div>
+
+<div class="section home-editorial-workflows">
+    <div class="max-w-1440 mx-auto home-editorial-row">
+        <div class="home-workflow-grid">
+            <% editorial.workflows.items.forEach(function(item, index) { const tool = tools.get(item.tool); if (tool) { %>
+                <a href="<%= urlManager.get(item.tool) %>" class="home-workflow-card home-workflow-card-<%= index + 1 %>">
+                    <span class="home-workflow-icon"><img src="<%= tool.icon %>" alt="" /></span>
+                    <span class="home-workflow-content">
+                        <strong><%= item.title %></strong>
+                        <span><%= item.desc %></span>
+                    </span>
+                </a>
+            <% } }); %>
+        </div>
+        <div class="home-editorial-copy">
+            <div class="home-editorial-eyebrow"><%= editorial.workflows.eyebrow %></div>
+            <h2><%= editorial.workflows.title %></h2>
+            <% editorial.workflows.paragraphs.forEach(function(paragraph) { %>
+                <p><%= paragraph %></p>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+<div class="section section-bg">
+    <div class="max-w-1440 mx-auto">
+        <div class="d-flex align-items-center">
+            <div class="w-full">
+                <div>
+                    <h2 class="ml-10"><%= locale.get('upload.security') %></h2>
+                </div>
+                <div class="mt-20">
+                    <ul class="pl-5 list-style-none">
+                        <% locale.get('upload.securityItems').forEach(function(item, index) { %>
+                        <li class="pb-10"><span class="icon-checked">✓</span> <%= item %></li>
+                        <% }); %>
+                    </ul>
+                    <div>
+                        <a href="<%= urlManager.get('security') %>" target="_blank" class="fw-700"><%= locale.get('page.security.name') %> &#10142;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="d-hide-md"><img src="<%= ASSETS_URL %>images/security.webp" class="img-h280"/></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="max-w-1440 mx-auto">
+        <div class="home-pricing-intro">
+            <div>
+                <h2><%= locale.get('page.pricing.pricingPlan') %></h2>
+                <p><%= locale.get('page.pricing.simpleDesc') %></p>
+            </div>
+            <a href="<%= urlManager.get('pricing') %>" class="btn btn-blue-outline blue-button home-pricing-link">
+                <%= locale.get('page.pricing.comparePlan') %>
+            </a>
+        </div>
+        <div class="home-pricing-grid">
+            <div class="home-pricing-card">
+                <div>
+                    <h3><%= locale.get('page.pricing.level_0') %></h3>
+                    <div class="home-pricing-price">
+                        <span><%= CURRENCY %>0</span>
+                        <small>/ <%= locale.get('page.pricing.month') %></small>
+                    </div>
+                </div>
+                <ul>
+                    <li><%= locale.get('page.pricing.allTools') %></li>
+                    <li><%= locale.get('page.pricing.limitedDocSize') %></li>
+                    <li><%= locale.get('page.pricing.limitedDocProcess') %></li>
+                </ul>
+                <a href="<%= urlManager.get('index') %>" class="btn btn-blue fs-16"><%= locale.get('page.pricing.level_0_btn') %></a>
+            </div>
+            <div class="home-pricing-card home-pricing-card-featured">
+                <div>
+                    <h3><%= locale.get('page.pricing.level_1') %></h3>
+                    <div class="home-pricing-price">
+                        <span><%= CURRENCY %><%= PLANS.lv_1.price.year / 12 %></span>
+                        <small>/ <%= locale.get('page.pricing.month') %></small>
+                    </div>
+                    <div class="home-pricing-bill"><%= locale.get('page.pricing.billedYearly', { price: CURRENCY + PLANS.lv_1.price.year }) %></div>
+                </div>
+                <ul>
+                    <li><%= locale.get('page.pricing.workLargerDocSize') %></li>
+                    <li><%= locale.get('page.pricing.moreProcessTask') %></li>
+                    <li><%= locale.get('page.pricing.customerSupport') %></li>
+                </ul>
+                <a href="<%= urlManager.get('upgrade') %>?b=yearly&t=1" class="btn btn-yellow fs-16"><%= locale.get('page.pricing.level_1_btn') %></a>
+            </div>
+            <div class="home-pricing-card">
+                <div>
+                    <h3><%= locale.get('page.pricing.level_2') %></h3>
+                    <div class="home-pricing-price">
+                        <span><%= CURRENCY %><%= PLANS.lv_2.price.year / 12 %></span>
+                        <small>/ <%= locale.get('page.pricing.month') %></small>
+                    </div>
+                    <div class="home-pricing-bill"><%= locale.get('page.pricing.billedYearly', { price: CURRENCY + PLANS.lv_2.price.year }) %></div>
+                </div>
+                <ul>
+                    <li><%= locale.get('page.pricing.unlimitedDocSize') %></li>
+                    <li><%= locale.get('page.pricing.unlimitedDocProcess') %></li>
+                    <li><%= locale.get('page.pricing.customerSupport') %></li>
+                </ul>
+                <a href="<%= urlManager.get('upgrade') %>?b=yearly&t=2" class="btn btn-purple fs-16"><%= locale.get('page.pricing.level_2_btn') %></a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,254 @@
+.icon-success {
+    display: block;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #1ac965;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.blue-button .__icon svg {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.download-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.download-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.download-actions .btn-download {
+    min-width: 220px;
+}
+
+.download-actions .__icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.download-actions .__icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.card-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 112px;
+    border-color: #bfe9d0;
+    background-color: #f8fffb;
+    background-image:
+        linear-gradient(135deg, rgba(191, 219, 254, 0.95) 0 100%),
+        linear-gradient(45deg, rgba(254, 202, 202, 0.95) 0 100%),
+        linear-gradient(45deg, rgba(187, 247, 208, 0.95) 0 100%),
+        linear-gradient(45deg, rgba(254, 240, 138, 0.95) 0 100%),
+        linear-gradient(45deg, rgba(221, 214, 254, 0.95) 0 100%),
+        linear-gradient(135deg, rgba(254, 202, 202, 0.95) 0 100%),
+        linear-gradient(45deg, rgba(167, 243, 208, 0.95) 0 100%),
+        linear-gradient(45deg, rgba(254, 240, 138, 0.95) 0 100%),
+        linear-gradient(135deg, rgba(191, 219, 254, 0.95) 0 100%),
+        linear-gradient(45deg, rgba(254, 202, 202, 0.95) 0 100%),
+        linear-gradient(90deg, #fbfffd 0%, #f6fffa 100%);
+    background-position:
+        4% 38%,
+        8% 72%,
+        16% 82%,
+        12% 18%,
+        78% 18%,
+        72% 38%,
+        83% 42%,
+        91% 26%,
+        96% 44%,
+        92% 76%,
+        0 0;
+    background-repeat: no-repeat;
+    background-size:
+        8px 8px,
+        9px 9px,
+        8px 8px,
+        10px 10px,
+        9px 9px,
+        8px 8px,
+        9px 9px,
+        8px 8px,
+        8px 8px,
+        10px 10px,
+        100% 100%;
+    /* box-shadow: 0 12px 28px rgba(26, 201, 101, 0.08); */
+}
+
+.card-success .icon-success {
+    width: 72px;
+    height: 72px;
+    line-height: 72px;
+    font-size: 42px;
+    box-shadow: 0 10px 24px rgba(26, 201, 101, 0.25);
+}
+
+.card-success.is-deleted {
+    border-color: #fecaca;
+    background-color: #fffafa;
+    background-image:
+        linear-gradient(135deg, rgba(254, 202, 202, 0.95) 0 100%),
+        linear-gradient(45deg, rgba(191, 219, 254, 0.95) 0 100%),
+        linear-gradient(45deg, rgba(254, 240, 138, 0.95) 0 100%),
+        linear-gradient(90deg, #fffafa 0%, #fff7f7 100%);
+    background-position:
+        8% 72%,
+        18% 22%,
+        88% 28%,
+        0 0;
+    background-repeat: no-repeat;
+    background-size:
+        9px 9px,
+        8px 8px,
+        10px 10px,
+        100% 100%;
+}
+
+.card-success.is-deleted .icon-success {
+    background-color: #ef4444;
+    box-shadow: 0 10px 24px rgba(239, 68, 68, 0.22);
+}
+
+.card-success-content strong {
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.card-success-content p {
+    margin: 7px 0 0;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.35 !important;
+}
+
+.download-info-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(140px, 0.7fr) minmax(0, 1fr);
+    border: 1px solid var(--brand-border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.download-info-item {
+    min-width: 0;
+    padding: 22px 28px;
+}
+
+.download-info-item:not(:first-child) {
+    border-left: 1px solid var(--brand-border);
+}
+
+.download-info-value {
+    margin-top: 7px;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.download-info-result {
+    background: var(--brand-primary-soft);
+}
+
+/* Brand refresh */
+.icon-success {
+    background-color: var(--brand-primary);
+}
+
+.card-success {
+    border-color: #aac6ba;
+    border-radius: var(--brand-radius-lg);
+    background:
+        radial-gradient(circle at 100% 0%, rgba(23,107,87,.10), transparent 18rem),
+        var(--brand-surface);
+    box-shadow: var(--brand-shadow-md);
+}
+
+.card-success-content strong,
+.download-info-value {
+    color: var(--brand-ink);
+}
+
+.card-success-content p {
+    color: var(--brand-muted);
+}
+
+.download-info-grid {
+    border-color: var(--brand-border);
+    border-radius: var(--brand-radius-md);
+    background: #f1f3ea;
+}
+
+.download-info-item:not(:first-child) {
+    border-color: var(--brand-border);
+}
+
+.download-actions .btn {
+    border-radius: 999px;
+}
+
+@media (max-width: 570px) {
+    .download-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .download-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .download-info-item:not(:first-child) {
+        border-top: 1px solid var(--brand-border);
+        border-left: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .card-success {
+        justify-content: flex-start;
+        min-height: auto;
+        background-position:
+            6% 18%,
+            12% 84%,
+            88% 78%,
+            28% 12%,
+            78% 12%,
+            72% 38%,
+            88% 42%,
+            92% 22%,
+            96% 60%,
+            82% 86%,
+            0 0;
+    }
+
+    .card-success .icon-success {
+        width: 58px;
+        height: 58px;
+        line-height: 58px;
+        font-size: 34px;
+    }
+
+    .card-success-content strong {
+        font-size: 22px;
+    }
+}

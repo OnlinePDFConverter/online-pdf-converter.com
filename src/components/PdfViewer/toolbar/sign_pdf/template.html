@@ -1,0 +1,10 @@
+<div class="pv-sign-menu-anchor" data-sign-menu-anchor>
+    <%= button(icon.main, label, 'sign-pdf') %>
+    <div id="<%= menuId %>" class="pv-sign-menu pv-d-none" data-sign-menu role="menu">
+        <div class="pv-sign-menu-list" data-sign-menu-list></div>
+        <button class="pv-sign-menu-add p-15" data-sign-menu-add type="button" role="menuitem">
+            <span aria-hidden="true">＋</span>
+            <%= addNew %>
+        </button>
+    </div>
+</div>

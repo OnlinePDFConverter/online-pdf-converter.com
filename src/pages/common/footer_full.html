@@ -1,0 +1,47 @@
+﻿<%
+const { locale, pageName, urlManager } = htmlWebpackPlugin.options.templateParameters;
+%>
+
+<div class="footer-full pb-30">
+    <div class="footer-item w-full w-smd-12">
+        <div class="footer-title">
+            <div class="logo">
+                <a href="<%= urlManager.get('index') %>" class="d-flex align-items-center flex-nowrap hover-none-underline ">
+                    <img src="<%= ASSETS_URL %>images/logo.png<%= ASSETS_VER %>" alt="<%= APP_NAME %>" />
+                    <div class="web-info ml-10">
+                        <div class="web-name"><%= APP_NAME %></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="fs-13">
+            <%= locale.get('footText') %>
+        </div>
+    </div>
+    <div class="footer-item w-full w-smd-12">
+        <div class="footer-title"><%= APP_NAME %></div>
+        <ul class="footer-navs">
+            <li><a href="<%= urlManager.get('terms') %>"><%= locale.get('page.terms.name') %></a></li>
+            <li><a href="<%= urlManager.get('privacy') %>"><%= locale.get('page.privacy.name') %></a></li>
+            <li><a href="<%= urlManager.get('security') %>"><%= locale.get('page.security.name') %></a></li>
+            <li><a href="<%= urlManager.get('openSource') %>"><%= locale.get('page.openSource.name') %></a></li>
+        </ul>
+    </div>
+    <div class="footer-item w-full w-smd-12">
+        <div class="footer-title"><%= locale.get('product') %></div>
+        <ul class="footer-navs">
+            <li><a href="<%= urlManager.get('pricing') %>"><%= locale.get('page.pricing.name') %></a></li>
+            <!-- <li><a href="<%= urlManager.get('mobileApp') %>"><%= locale.get('page.mobileApp.name') %></a></li> -->
+            <!-- <li><a href="<%= urlManager.get('desktopApp') %>"><%= locale.get('page.desktopApp.name') %></a></li> -->
+            <li><a href="<%= urlManager.get('browserExtension') %>"><%= locale.get('page.browserExtension.name') %></a></li>
+            <!-- <li><a href="<%= urlManager.get('googleWorkspace') %>"><%= locale.get('page.googleWorkspace.name') %></a></li> -->
+        </ul>
+    </div>
+    <div class="footer-item w-full w-smd-12">
+        <div class="footer-title"><%= locale.get('company') %></div>
+        <ul class="footer-navs">
+            <li><a href="<%= urlManager.get('about') %>"><%= locale.get('page.about.name') %></a></li>
+            <li><a href="<%= urlManager.get('contact') %>"><%= locale.get('page.contact.name') %></a></li>
+        </ul>
+    </div>
+</div>

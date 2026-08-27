@@ -1,0 +1,55 @@
+:root {
+    --brand-primary: #176b57;
+    --brand-primary-hover: #115244;
+    --brand-primary-soft: #e7efe9;
+    --brand-ink: #17352f;
+    --brand-accent: #e86f51;
+    --brand-accent-hover: #c9553b;
+    --brand-canvas: #f6f1e8;
+    --brand-surface: #fffcf7;
+    --brand-surface-raised: #ffffff;
+    --brand-border: #d7dfd8;
+    --brand-border-strong: #b8c8bf;
+    --brand-muted: #65736d;
+    --brand-shadow-sm: 0 8px 22px rgba(23, 53, 47, .07);
+    --brand-shadow-md: 0 20px 50px rgba(23, 53, 47, .11);
+    --brand-radius-sm: 10px;
+    --brand-radius-md: 16px;
+    --brand-radius-lg: 24px;
+    --focus-ring: 0 0 0 4px rgba(232, 111, 81, .22);
+
+    --text-color: var(--brand-ink);
+    --text-muted: var(--brand-muted);
+    --link-color: var(--brand-primary);
+    --body-background-color: var(--brand-canvas);
+
+    --header-background-color: rgba(255, 252, 247, .94);
+    --header-text-color: var(--brand-ink);
+
+    --footer-background-color: #17352f;
+    --footer-text-color: #f8f2e8;
+
+
+    --input-bg-color: #fffdf9;
+    --input-border-color: var(--brand-border-strong);
+
+
+    --btn-blue-outline-text-color: var(--brand-primary);
+    --btn-blue-outline-text-color-hover: var(--brand-primary-hover);
+    --btn-blue-outline-text-color-active: var(--brand-primary-hover);
+    --btn-blue-outline-bg-color-hover: var(--brand-primary-soft);
+    --btn-blue-outline-bg-color-active: #dce9e1;
+    --btn-blue-outline-border-color: #9fb9ae;
+    --btn-blue-outline-border-color-hover: var(--brand-primary);
+    --btn-blue-outline-border-color-active: var(--brand-primary-hover);
+    
+
+    --btn-red-outline-text-color: #e42929;
+    --btn-red-outline-text-color-hover: #e42929;
+    --btn-red-outline-text-color-active: #e42929;
+    --btn-red-outline-bg-color-hover: #fff8f8;
+    --btn-red-outline-bg-color-active: #fff8f8;
+    --btn-red-outline-border-color: #ffb8be;
+    --btn-red-outline-border-color-hover: #fd828e;
+    --btn-red-outline-border-color-active: #fd828e;
+}

@@ -1,0 +1,19 @@
+.page-numbers-color {
+    height: 45px;
+}
+
+.page-numbers-marker {
+    position: absolute;
+    z-index: 2;
+    max-width: 100%;
+    padding: 1px 3px;
+    overflow: hidden;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, .92);
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+}

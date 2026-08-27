@@ -1,0 +1,36 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F1FFF4"/>
+      <stop offset="62%" stop-color="#D9F9E4"/>
+      <stop offset="100%" stop-color="#C9F4D7"/>
+    </radialGradient>
+    <linearGradient id="shield" x1="256" y1="112.051" x2="256" y2="385.227" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0CC95B"/>
+      <stop offset="1" stop-color="#0ABF58"/>
+    </linearGradient>
+  </defs>
+
+  <!-- circular background with padding like the generated version -->
+  <circle cx="256" cy="256" r="224" fill="url(#bg)"/>
+
+  <!-- original shield preserved -->
+  <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M256 111.233
+           C279.719 133.316 314.888 151.31 354.147 151.31
+           C358.236 151.31 360.69 154.581 360.69 157.853
+           L360.69 264.997
+           C360.69 317.342 315.706 356.601 260.089 384.409
+           C257.636 386.045 254.364 386.045 251.911 384.409
+           C196.294 356.601 151.31 317.342 151.31 264.997
+           L151.31 157.853
+           C151.31 154.581 153.764 151.31 157.853 151.31
+           C197.112 151.31 232.281 133.316 256 111.233ZM256 155.399
+           C236.371 170.121 212.652 180.754 187.297 183.208
+           L187.297 262.543
+           C187.297 294.441 215.105 323.067 256 345.968
+           C296.895 323.067 324.703 294.441 324.703 262.543
+           L324.703 183.208
+           C299.348 180.754 275.629 170.121 256 155.399Z"
+        fill="url(#shield)"/>
+</svg>

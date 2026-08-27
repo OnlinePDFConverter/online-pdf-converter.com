@@ -1,0 +1,23 @@
+<%
+const tool = 'unlock_pdf';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/converter.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.pdf',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFiles'),
+    chooseText: locale.get('button.choosePDFFiles'),
+    enableSettings: true
+}) %>
+
+<div>
+    <div>
+        <span class="label"><%= locale.get('page.unlock_pdf.password') %></span>
+        <input type="password" class="input input-border" data-unlock-password autocomplete="current-password">
+    </div>
+</div>

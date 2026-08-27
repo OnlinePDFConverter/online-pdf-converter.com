@@ -1,0 +1,22 @@
+<%
+const { locale, pageName } = htmlWebpackPlugin.options.templateParameters;
+%>
+<!DOCTYPE html>
+<html lang="<%= locale.langCode %>">
+
+<head>
+    <%= require("../common/head.html")({htmlWebpackPlugin}) %>
+</head>
+
+<body>
+    <div class="full-height">
+        <%= require("../common/header.html")(htmlWebpackPlugin.options.templateParameters) %>
+        <div class="main-box">
+            {{content}}
+        </div>
+        <%= require("../common/footer.html")({htmlWebpackPlugin}) %>
+    </div>
+</body>
+
+</html>
+<!--{{content}}-->

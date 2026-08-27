@@ -1,0 +1,4 @@
+User-agent: *<% for(let langCode in ROUTERS) { %><% let langRouters = ROUTERS[langCode] %><% for(let item in langRouters) { %><% if(!langRouters[item].denyIndex) continue;%>
+Disallow: <%= langRouters[item].url %><% } %><% } %>
+
+sitemap: https://<%= DOMAIN %>/sitemap.xml

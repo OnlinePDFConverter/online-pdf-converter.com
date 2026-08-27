@@ -1,0 +1,8 @@
+/build/
+node_modules/
+package-lock.json
+webpack.constants.js
+src/assets/locale
+src/assets/up
+/output/
+# /dist_*.zip

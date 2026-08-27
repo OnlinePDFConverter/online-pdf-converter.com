@@ -1,0 +1,95 @@
+<%
+const tool = 'rasterize_pdf';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/converter.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.pdf',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFile'),
+    chooseText: locale.get('button.choosePDFFile'),
+    enableSettings: true
+}) %>
+
+<div>
+    <div>
+        <span class="label"><%= locale.get('page.pdf_to_images.resolution') %></span>
+        <select class="input input-border" data-images-scale>
+            <option value="1"><%= locale.get('page.pdf_to_images.resolutionLow') %></option>
+            <option value="2" selected><%= locale.get('page.pdf_to_images.resolutionMedium') %></option>
+            <option value="3"><%= locale.get('page.pdf_to_images.resolutionHigh') %></option>
+            <option value="4"><%= locale.get('page.pdf_to_images.resolutionVeryHigh') %></option>
+        </select>
+    </div>
+
+    <div class="mt-25">
+        <span class="label"><%= locale.get('page.pdf_to_images.outputFormat') %></span>
+        <select class="input input-border" data-images-format>
+            <option value="jpg" selected><%= locale.get('page.pdf_to_images.formatJpg') %></option>
+            <option value="png"><%= locale.get('page.pdf_to_images.formatPng') %></option>
+            <option value="webp"><%= locale.get('page.pdf_to_images.formatWebp') %></option>
+            <option value="bmp"><%= locale.get('page.pdf_to_images.formatBmp') %></option>
+        </select>
+    </div>
+
+    <div class="mt-25" data-images-quality-wrap>
+        <div class="d-flex align-items-center justify-content-between gap-15">
+            <span class="label mb-0"><%= locale.get('page.pdf_to_images.quality') %></span>
+            <strong data-images-quality-value>90%</strong>
+        </div>
+        <input type="range" min="50" max="100" value="90" step="1" class="wp-100 mt-10" data-images-quality>
+        <small class="mt-5"><%= locale.get('page.pdf_to_images.qualityHelp') %></small>
+    </div>
+
+    <div class="mt-25">
+        <span class="label mb-10"><%= locale.get('page.pdf_to_images.layoutTitle') %></span>
+        <div class="images-layout-grid" data-images-layout-grid>
+            <label class="images-layout-option is-active">
+                <input type="radio" name="images-layout" value="1x1" data-cols="1" data-rows="1" checked>
+                <span class="images-layout-preview" style="--cols:1;--rows:1"><i></i></span>
+                <span>1x1</span>
+            </label>
+            <label class="images-layout-option">
+                <input type="radio" name="images-layout" value="2x1" data-cols="2" data-rows="1">
+                <span class="images-layout-preview" style="--cols:2;--rows:1"><i></i><i></i></span>
+                <span>2x1</span>
+            </label>
+            <label class="images-layout-option">
+                <input type="radio" name="images-layout" value="1x2" data-cols="1" data-rows="2">
+                <span class="images-layout-preview" style="--cols:1;--rows:2"><i></i><i></i></span>
+                <span>1x2</span>
+            </label>
+            <label class="images-layout-option">
+                <input type="radio" name="images-layout" value="2x2" data-cols="2" data-rows="2">
+                <span class="images-layout-preview" style="--cols:2;--rows:2"><i></i><i></i><i></i><i></i></span>
+                <span>2x2</span>
+            </label>
+            <label class="images-layout-option">
+                <input type="radio" name="images-layout" value="3x3" data-cols="3" data-rows="3">
+                <span class="images-layout-preview" style="--cols:3;--rows:3"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <span>3x3</span>
+            </label>
+            <label class="images-layout-option">
+                <input type="radio" name="images-layout" value="custom" data-cols="2" data-rows="2">
+                <span class="images-layout-preview" style="--cols:2;--rows:2"><i></i><i></i><i></i><i></i></span>
+                <span><%= locale.get('page.pdf_to_images.layoutCustom') %></span>
+            </label>
+        </div>
+        <small class="mt-5"><%= locale.get('page.pdf_to_images.layoutHelp') %></small>
+    </div>
+
+    <div class="images-custom-layout mt-15 d-hide" data-images-custom-layout>
+        <label>
+            <span class="d-block fs-13 fw-600 mb-5"><%= locale.get('page.pdf_to_images.layoutColumns') %></span>
+            <input type="number" min="1" max="10" value="2" class="input input-border" data-images-custom-layout-cols>
+        </label>
+        <label>
+            <span class="d-block fs-13 fw-600 mb-5"><%= locale.get('page.pdf_to_images.layoutRows') %></span>
+            <input type="number" min="1" max="10" value="2" class="input input-border" data-images-custom-layout-rows>
+        </label>
+    </div>
+</div>

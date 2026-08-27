@@ -1,0 +1,72 @@
+<%
+const tool = 'protect_pdf';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/converter.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.pdf',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFiles'),
+    chooseText: locale.get('button.choosePDFFiles'),
+    enableSettings: true
+}) %>
+
+<div>
+    <div>
+        <span class="label"><%= locale.get('page.protect_pdf.userPassword') %></span>
+        <input type="password" class="input input-border" data-protect-user-password autocomplete="new-password" />
+    </div>
+
+    <div class="mt-25">
+        <span class="label"><%= locale.get('page.protect_pdf.confirmUserPassword') %></span>
+        <input type="password" class="input input-border" data-protect-user-password-confirm autocomplete="new-password" />
+    </div>
+
+    <div class="mt-25">
+        <span class="label"><%= locale.get('page.protect_pdf.ownerPassword') %></span>
+        <input type="password" class="input input-border" data-protect-owner-password autocomplete="new-password" />
+    </div>
+
+    <div class="mt-25">
+        <span class="label"><%= locale.get('page.protect_pdf.confirmOwnerPassword') %></span>
+        <input type="password" class="input input-border" data-protect-owner-password-confirm autocomplete="new-password" />
+    </div>
+
+    <div class="mt-25">
+        <label class="label"><%= locale.get('page.protect_pdf.permissionsTitle') %></label>
+        <div class="d-grid grid-col-2 gap-15">
+            <label class="protect-permission">
+                <input type="checkbox" class="checkbox" data-protect-permission="printing" checked>
+                <span><%= locale.get('page.protect_pdf.allowPrinting') %></span>
+            </label>
+            <label class="protect-permission">
+                <input type="checkbox" class="checkbox" data-protect-permission="copying" checked>
+                <span><%= locale.get('page.protect_pdf.allowCopying') %></span>
+            </label>
+            <label class="protect-permission">
+                <input type="checkbox" class="checkbox" data-protect-permission="modifying" checked>
+                <span><%= locale.get('page.protect_pdf.allowModifying') %></span>
+            </label>
+            <label class="protect-permission">
+                <input type="checkbox" class="checkbox" data-protect-permission="annotating" checked>
+                <span><%= locale.get('page.protect_pdf.allowAnnotating') %></span>
+            </label>
+            <label class="protect-permission">
+                <input type="checkbox" class="checkbox" data-protect-permission="fillingForms" checked>
+                <span><%= locale.get('page.protect_pdf.allowFillingForms') %></span>
+            </label>
+            <label class="protect-permission">
+                <input type="checkbox" class="checkbox" data-protect-permission="contentAccessibility" checked>
+                <span><%= locale.get('page.protect_pdf.allowAccessibility') %></span>
+            </label>
+            <label class="protect-permission">
+                <input type="checkbox" class="checkbox" data-protect-permission="documentAssembly" checked>
+                <span><%= locale.get('page.protect_pdf.allowAssembly') %></span>
+            </label>
+        </div>
+    </div>
+</div>

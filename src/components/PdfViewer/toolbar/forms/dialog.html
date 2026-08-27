@@ -1,0 +1,97 @@
+<form class="pv-forms-properties" data-forms-properties novalidate>
+    <input type="hidden" data-form-id>
+    <div class="pv-forms-property-error" data-property-error role="status" aria-live="polite" hidden></div>
+    <section class="pv-forms-property-section" data-type-panel="text,checkbox,radio,dropdown,optionlist,button,signature,date">
+        <div class="pv-forms-property-grid">
+            <label class="pv-forms-field pv-forms-field-wide">
+                <span><%= fieldName %></span>
+                <input type="text" data-prop="name" autocomplete="off">
+                <small class="pv-forms-field-error" data-name-error></small>
+            </label>
+            <label class="pv-forms-field pv-forms-field-wide">
+                <span><%= tooltip %></span>
+                <input type="text" data-prop="tooltip" autocomplete="off">
+            </label>
+        </div>
+    </section>
+
+    <section class="pv-forms-property-section" data-type-panel="text">
+        <div class="pv-forms-property-grid">
+            <label class="pv-forms-field pv-forms-field-wide"><span><%= defaultValue %></span><input type="text" data-prop="defaultValue"></label>
+            <label class="pv-forms-field"><span><%= maxLength %></span><input type="number" min="0" data-prop="maxLength"></label>
+            <label class="pv-forms-field"><span><%= combCells %></span><input type="number" min="0" data-prop="combCells"></label>
+            <label class="pv-forms-field"><span><%= fontSize %></span><input type="number" min="8" max="72" data-prop="fontSize"></label>
+            <label class="pv-forms-field"><span><%= textColor %></span><input type="color" data-prop="textColor"></label>
+            <label class="pv-forms-field"><span><%= alignment %></span><select data-prop="alignment"><option value="left"><%= left %></option><option value="center"><%= center %></option><option value="right"><%= right %></option></select></label>
+            <label class="pv-forms-check"><input type="checkbox" data-prop="multiline"><span><%= multiline %></span></label>
+        </div>
+    </section>
+
+    <section class="pv-forms-property-section" data-type-panel="checkbox">
+        <label class="pv-forms-check"><input type="checkbox" data-prop="checked"><span><%= checked %></span></label>
+    </section>
+
+    <section class="pv-forms-property-section" data-type-panel="radio">
+        <div class="pv-forms-property-grid">
+            <label class="pv-forms-field"><span><%= radioGroup %></span><input type="text" data-prop="groupName" list="<%= idPrefix %>-radio-groups"></label>
+            <datalist id="<%= idPrefix %>-radio-groups" data-radio-groups></datalist>
+            <label class="pv-forms-field"><span><%= exportValue %></span><input type="text" data-prop="exportValue"></label>
+            <label class="pv-forms-check"><input type="checkbox" data-prop="checked"><span><%= checked %></span></label>
+        </div>
+    </section>
+
+    <section class="pv-forms-property-section" data-type-panel="dropdown,optionlist">
+        <div class="pv-forms-property-grid">
+            <label class="pv-forms-field pv-forms-field-wide"><span><%= options %></span><textarea rows="5" data-prop="options"></textarea><small><%= optionsHelp %></small></label>
+            <label class="pv-forms-field pv-forms-field-wide"><span><%= selectedOption %></span><select data-prop="defaultOption"></select></label>
+        </div>
+    </section>
+
+    <section class="pv-forms-property-section" data-type-panel="button">
+        <div class="pv-forms-property-grid">
+            <label class="pv-forms-field"><span><%= label %></span><input type="text" data-prop="label"></label>
+            <label class="pv-forms-field"><span><%= action %></span><select data-prop="action"><option value="none"><%= actionNone %></option><option value="reset"><%= actionReset %></option><option value="print"><%= actionPrint %></option><option value="url"><%= actionUrl %></option><option value="js"><%= actionJs %></option><option value="showHide"><%= actionShowHide %></option></select></label>
+            <label class="pv-forms-field pv-forms-field-wide" data-action-panel="url"><span><%= url %></span><input type="url" data-prop="actionUrl" placeholder="https://example.com"></label>
+            <label class="pv-forms-field pv-forms-field-wide" data-action-panel="js"><span><%= javascript %></span><textarea rows="5" data-prop="jsScript"></textarea><small><%= javascriptHelp %></small></label>
+            <label class="pv-forms-field" data-action-panel="showHide"><span><%= targetField %></span><select data-prop="targetFieldName"></select></label>
+            <label class="pv-forms-field" data-action-panel="showHide"><span><%= visibility %></span><select data-prop="visibilityAction"><option value="show"><%= show %></option><option value="hide"><%= hide %></option><option value="toggle"><%= toggle %></option></select></label>
+        </div>
+    </section>
+
+    <section class="pv-forms-property-section" data-type-panel="signature">
+        <p class="pv-forms-note"><%= signatureHelp %></p>
+    </section>
+
+    <section class="pv-forms-property-section" data-type-panel="date">
+        <div class="pv-forms-property-grid">
+            <label class="pv-forms-field pv-forms-field-wide"><span><%= dateFormat %></span><select data-prop="dateFormat"></select></label>
+            <label class="pv-forms-field pv-forms-field-wide" data-custom-date><span><%= customDateFormat %></span><input type="text" data-prop="customDateFormat"></label>
+        </div>
+        <p class="pv-forms-note"><%= dateHelp %></p>
+    </section>
+
+    <section class="pv-forms-property-section" data-type-panel="barcode">
+        <div class="pv-forms-property-grid">
+            <label class="pv-forms-field"><span><%= barcodeFormat %></span><select data-prop="barcodeFormat"><option value="qrcode">QR Code</option><option value="code128">Code 128</option><option value="code39">Code 39</option><option value="ean13">EAN-13</option><option value="upca">UPC-A</option><option value="datamatrix">DataMatrix</option><option value="pdf417">PDF417</option></select></label>
+            <label class="pv-forms-field"><span><%= barcodeValue %></span><input type="text" data-prop="barcodeValue"></label>
+        </div>
+        <div class="pv-forms-barcode-preview"><canvas data-barcode-preview></canvas></div>
+    </section>
+
+    <section class="pv-forms-property-section pv-forms-property-common" data-type-panel="text,checkbox,radio,dropdown,optionlist,button,signature,date">
+        <div class="pv-forms-property-grid">
+            <label class="pv-forms-check"><input type="checkbox" data-prop="required"><span><%= required %></span></label>
+            <label class="pv-forms-check"><input type="checkbox" data-prop="readOnly"><span><%= readOnly %></span></label>
+        </div>
+    </section>
+
+    <section class="pv-forms-property-section pv-forms-property-common">
+        <div class="pv-forms-property-grid">
+            <label class="pv-forms-field"><span><%= borderColor %></span><input type="color" data-prop="borderColor"></label>
+            <label class="pv-forms-check"><input type="checkbox" data-prop="hideBorder"><span><%= hideBorder %></span></label>
+            <label class="pv-forms-check"><input type="checkbox" data-prop="transparentBackground"><span><%= transparentBackground %></span></label>
+        </div>
+    </section>
+
+    <button class="btn btn-red-outline pv-forms-delete-field" type="button" data-delete-field><%= deleteField %></button>
+</form>

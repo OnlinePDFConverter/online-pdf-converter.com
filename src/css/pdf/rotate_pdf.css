@@ -1,0 +1,23 @@
+.file-list.thumb-grid .file-item[data-page-number] .file-icon {
+    container-type: size;
+}
+
+.file-list.thumb-grid .file-item[data-page-number] .file-icon [data-page-preview] {
+    transform: rotate(var(--page-rotation, 0deg));
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+.file-list.thumb-grid .file-item[data-page-number][data-quarter-turn] .file-icon [data-page-preview] {
+    max-width: 100cqh;
+    max-height: 100cqw;
+}
+
+.file-list.thumb-grid .file-item[data-page-number] .file-icon .blank-page-preview {
+    display: block;
+    height: 100%;
+    max-width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 7px rgba(16, 36, 92, .16);
+}

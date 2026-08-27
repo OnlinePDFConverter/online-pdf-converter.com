@@ -1,0 +1,2 @@
+.pv-draw-toolbar button svg { width: 18px; height: 18px; }
+.pv-draw-toolbar [data-editor-tool="highlighter"] svg { color: #f2bb05; }

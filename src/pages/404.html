@@ -1,0 +1,20 @@
+<%= require("./layouts/main_full_height.html")({htmlWebpackPlugin}) %>
+
+<div class="error-page section">
+    <div class="max-w-1440 mx-auto d-flex justify-content-center">
+        <div class="error-copy text-center">
+            <h1><%= locale.get('page.error.name') %></h1>
+            <h2><%= locale.get('page.error.title') %></h2>
+            <p><%= locale.get('page.error.content') %></p>
+            <div class="d-flex justify-content-center gap-25 mt-35">
+                <a class="btn btn-blue btn-lg" href="<%= urlManager.get('index') %>">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="img-18 mr-10">
+                        <path d="M10.8 3.7a1 1 0 0 1 1.4 1.4L6.4 11H20a1 1 0 1 1 0 2H6.4l5.8 5.9a1 1 0 1 1-1.4 1.4l-7.5-7.6a1 1 0 0 1 0-1.4l7.5-7.6z"></path>
+                    </svg>
+                    <span><%= locale.get('button.back') %></span>
+                </a>
+                <a class="btn btn-blue-outline btn-lg" href="<%= urlManager.get('allTools') %>"><%= locale.get('button.allTools') %></a>
+            </div>
+        </div>
+    </div>
+</div>

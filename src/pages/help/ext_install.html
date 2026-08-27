@@ -1,0 +1,54 @@
+<%= require("../layouts/main_full_height.html")({htmlWebpackPlugin}) %>
+
+<div class="ext-page ext-page-install">
+    <div class="ext-page-inner">
+        <section class="ext-hero">
+            <div>
+                <img src="<%= ASSETS_URL %>images/installed.png" class="ext-here-icon" />
+            </div>
+
+            <h1><%= locale.get('page.ext_install.name') %></h1>
+            <p><%= locale.get('page.ext_install.desc') %></p>
+
+            <div class="ext-actions">
+                <a href="<%= urlManager.get('index') %>" class="btn btn-blue blue-button">
+                    <%= locale.get('page.ext_install.primaryButton') %>
+                </a>
+            </div>
+        </section>
+
+        <section class="ext-info-section">
+            <h2><%= locale.get('page.ext_install.sectionTitle') %></h2>
+            <div class="ext-card-grid">
+                <% locale.get('page.ext_install.items').forEach(function(item, index) { %>
+                    <article class="ext-info-card">
+                        <span class="ext-card-icon ext-card-icon-<%= index + 1 %>" aria-hidden="true">
+                            <% if (index === 0) { %>
+                                <svg viewBox="0 0 24 24"><path d="M13 2 5 13h6l-1 9 8-12h-6l1-8Z" /></svg>
+                            <% } else if (index === 1) { %>
+                                <svg viewBox="0 0 24 24"><path d="M3 7a3 3 0 0 1 3-3h4l2 2h6a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7Zm2 3v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7H5Z" /></svg>
+                            <% } else { %>
+                                <svg viewBox="0 0 24 24"><path d="M12 2 5 5v6c0 4.6 2.9 8.8 7 10 4.1-1.2 7-5.4 7-10V5l-7-3Zm0 4.2 4 1.7V11c0 3-1.6 5.8-4 7-2.4-1.2-4-4-4-7V7.9l4-1.7Z" /></svg>
+                            <% } %>
+                        </span>
+                        <h3><%= item.title %></h3>
+                        <p><%= item.desc %></p>
+                    </article>
+                <% }); %>
+            </div>
+        </section>
+
+        <section class="ext-callout ext-callout-install">
+            <span class="ext-callout-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2 4 10l4 1-3 7 7-3 1 4 8-8-4-1 3-7-7 3-1-4Z" /></svg>
+            </span>
+            <div>
+                <h2><%= locale.get('page.ext_install.tipTitle') %></h2>
+                <p><%= locale.get('page.ext_install.tipDesc') %></p>
+            </div>
+            <a href="<%= urlManager.get('index') %>" class="btn btn-blue-outline">
+                <%= locale.get('page.ext_install.tipButton') %>
+            </a>
+        </section>
+    </div>
+</div>

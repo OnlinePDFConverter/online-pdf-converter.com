@@ -1,0 +1,86 @@
+<div class="pv-sign-editor">
+    <div class="pv-sign-tabs" role="tablist" aria-label="<%= typeLabel %>">
+        <button id="<%= idPrefix %>-tab-text" class="pv-sign-tab is-active" data-sign-tab="text"
+            type="button" role="tab" aria-selected="true" aria-controls="<%= idPrefix %>-panel-text">
+            <%= typeText %>
+        </button>
+        <button id="<%= idPrefix %>-tab-draw" class="pv-sign-tab" data-sign-tab="draw"
+            type="button" role="tab" aria-selected="false" aria-controls="<%= idPrefix %>-panel-draw" tabindex="-1">
+            <%= typeDraw %>
+        </button>
+        <button id="<%= idPrefix %>-tab-image" class="pv-sign-tab" data-sign-tab="image"
+            type="button" role="tab" aria-selected="false" aria-controls="<%= idPrefix %>-panel-image" tabindex="-1">
+            <%= typeImage %>
+        </button>
+    </div>
+
+    <section id="<%= idPrefix %>-panel-text" class="pv-sign-panel" data-sign-panel="text"
+        role="tabpanel" aria-labelledby="<%= idPrefix %>-tab-text">
+        <div class="pv-sign-panel-toolbar">
+            <label class="pv-sign-color">
+                <span><%= color %></span>
+                <input data-sign-text-color type="color" value="#111827">
+            </label>
+            <label>
+                <span><%= font %></span>
+                <select data-sign-font>
+                    <option value="cursive">Cursive</option>
+                    <option value="serif">Serif</option>
+                    <option value="sans">Sans Serif</option>
+                    <option value="mono">Monospace</option>
+                </select>
+            </label>
+        </div>
+        <div class="pv-sign-type-preview">
+            <input data-sign-text type="text" maxlength="100" autocomplete="off"
+                aria-label="<%= signatureText %>" placeholder="<%= typePlaceholder %>">
+        </div>
+        <div class="pv-sign-panel-actions">
+            <button class="btn btn-sm btn-outline btn-red-outline" type="button" data-sign-clear-text><%= clear %></button>
+        </div>
+    </section>
+
+    <section id="<%= idPrefix %>-panel-draw" class="pv-sign-panel pv-d-none" data-sign-panel="draw"
+        role="tabpanel" aria-labelledby="<%= idPrefix %>-tab-draw" hidden>
+        <div class="pv-sign-panel-toolbar">
+            <label class="pv-sign-color">
+                <span><%= color %></span>
+                <input data-sign-draw-color type="color" value="#111827">
+            </label>
+            <label class="pv-sign-range-field">
+                <span><%= strokeWidth %></span>
+                <input data-sign-stroke-width type="range" min="1" max="12" step="1" value="4">
+                <output data-sign-stroke-width-value>4</output>
+            </label>
+        </div>
+        <canvas class="pv-sign-draw-canvas" data-sign-draw-canvas width="700" height="220"></canvas>
+        <div class="pv-sign-panel-actions">
+            <button class="btn btn-sm btn-outline btn-red-outline" type="button" data-sign-clear-draw><%= clear %></button>
+        </div>
+    </section>
+
+    <section id="<%= idPrefix %>-panel-image" class="pv-sign-panel pv-d-none" data-sign-panel="image"
+        role="tabpanel" aria-labelledby="<%= idPrefix %>-tab-image" hidden>
+        <input class="pv-sign-image-input" data-sign-image type="file" accept="image/png,image/jpeg" tabindex="-1">
+        <div class="pv-sign-image-preview" data-sign-image-preview-container>
+            <button class="pv-sign-image-upload" type="button" data-sign-image-empty data-sign-image-trigger>
+                <%= imageEmpty %>
+            </button>
+        </div>
+        <div class="pv-sign-panel-actions">
+            <button class="btn btn-sm btn-outline btn-red-outline" type="button" data-sign-clear-image><%= clear %></button>
+        </div>
+    </section>
+
+    <div class="pv-sign-common-settings">
+        <label class="pv-sign-range-field">
+            <span><%= opacity %></span>
+            <input data-sign-opacity type="range" min="0.1" max="1" step="0.05" value="1">
+            <output data-sign-opacity-value>100%</output>
+        </label>
+        <label class="pv-sign-save">
+            <input data-sign-save type="checkbox" checked>
+            <span><%= saveSignature %></span>
+        </label>
+    </div>
+</div>

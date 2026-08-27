@@ -1,0 +1,2 @@
+.pv-shapes-toolbar button svg { width: 18px; height: 18px; }
+.pv-shapes-toolbar [data-editor-tool]:not([data-editor-tool="select"]) svg { color: #ef3e3e; }

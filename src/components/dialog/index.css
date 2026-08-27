@@ -1,0 +1,142 @@
+/*! purgecss start ignore */
+.__dialog {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.__dialog_open {
+    display: block;
+}
+
+.__dialog_close {
+    display: none;
+}
+
+.__dialog_overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.__dialog_main {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    max-height: 90%;
+    background-color: #ffffff;
+    transition: width 200ms, height 200ms;
+    padding: 25px;
+}
+
+.__dialog_main.__fullscreen {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.__dialog_header,
+.__dialog_footer {
+    background-color: #ffffff;
+    color: #000000;
+    /* width: 100%; */
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.__dialog_header_title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.__dialog_header_controls {
+    display: flex;
+    align-items: center;
+}
+
+.__dialog_header_controls .__dialog_control_btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.__dialog_header_controls .__dialog_control_btn:hover {
+    background: #eee;
+}
+
+.__dialog_header_controls .__dialog_control_btn svg {
+    fill: #000000;
+    width: 24px;
+    height: 24px;
+}
+
+.__dialog_body {
+    background-color: #ffffff;
+    overflow: hidden;
+    max-width: 100%;
+    height: 100%;
+}
+
+.__dialog_confirm .__dialog_confirm_btn {
+    min-width: 65px;
+}
+
+.__dialog_confirm .__dialog_body {
+    padding-bottom: 0 !important;
+}
+
+.__dialog_confirm .__dialog_confirm_buttons {
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.__dialog_confirm_btn {
+    margin: 0 5px;
+}
+
+.__dialog.__dialog.__dialog_animate {
+    transition: opacity 200ms;
+}
+
+.__dialog.__dialog_animate_start {
+    opacity: 0;
+}
+
+.__dialog.__dialog_animate_end {
+    opacity: 1;
+}
+
+.__dialog_padding {
+    padding: 0 8px 15px 15px;
+}
+
+.__dialog_padding .__dialog_header {
+    padding: 15px 0 15px 0 !important;
+}
+
+.__dialog_padding .__dialog_body {
+    /* 当出现滚动条时兼容__dialog_padding的右8px */
+    padding-right: 7px;
+    overflow: auto;
+}
+/*! purgecss end ignore */

@@ -1,0 +1,16 @@
+<%
+const tool = 'fb2_to_pdf';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/converter.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.fb2',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFiles'),
+    chooseText: locale.get('button.addFiles'),
+    enableSettings: false
+}) %>

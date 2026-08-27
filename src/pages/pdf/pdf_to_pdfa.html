@@ -1,0 +1,47 @@
+<%
+const tool = 'pdf_to_pdfa';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/converter.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.pdf',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFiles'),
+    chooseText: locale.get('button.choosePDFFiles'),
+    enableSettings: true
+}) %>
+
+<div>
+    <label class="option-radio">
+        <input type="radio" name="pdfa-level" value="1b">
+        <span>
+            <strong class="label">PDF/A-1b</strong>
+            <small><%= locale.get('page.pdf_to_pdfa.level1b') %></small>
+        </span>
+    </label>
+    <label class="option-radio mt-15">
+        <input type="radio" name="pdfa-level" value="2b" checked>
+        <span>
+            <strong class="label">PDF/A-2b</strong>
+            <small><%= locale.get('page.pdf_to_pdfa.level2b') %></small>
+        </span>
+    </label>
+    <label class="option-radio mt-15">
+        <input type="radio" name="pdfa-level" value="3b">
+        <span>
+            <strong class="label">PDF/A-3b</strong>
+            <small><%= locale.get('page.pdf_to_pdfa.level3b') %></small>
+        </span>
+    </label>
+
+    <div class="mt-25">
+        <label class="d-flex gap-15">
+            <input type="checkbox" class="checkbox" data-pdfa-flatten-transparency>
+            <span><%= locale.get('page.pdf_to_pdfa.flattenTransparency') %></span>
+        </label>
+    </div>
+</div>

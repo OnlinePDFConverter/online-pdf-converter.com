@@ -1,0 +1,395 @@
+<%= require("./layouts/main.html")({htmlWebpackPlugin}) %>
+
+<div class="max-w-1280 mx-auto fs-16 pt-50">
+    
+    <div class="section">
+        <div class="text-center">
+            <h1 class="fs-32 wp-100"><%= locale.get('page.pricing.title') %></h1>
+        </div>
+
+        <div class="pricing-bill">
+            <div class="bill-wrapper">
+                <div class="bill" data-type="monthly" data-group="1"><%= locale.get('page.pricing.monthlyBill') %></div>
+                <div class="bill bill-year active" data-type="yearly" data-group="1"><%= locale.get('page.pricing.yearlyBill') %><div class="discount">-40%</div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="pricing-box my-60">
+            <div class="price-wrapper w-full w-smd-12">
+                <div class="price-item" data-month="0" data-year="0">
+                    <div>
+                        <div>
+                            <h3><%= locale.get('page.pricing.level_0') %></h3>
+                            <div>
+                                <div class="fs-16"><span class="price"><%= CURRENCY %><label>0</label></span> / <%= locale.get('page.pricing.month') %></div>
+                                <div class="small">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="act-box mt-20">
+                            <a href="<%= urlManager.get('index') %>" class="btn btn-blue fs-16 w-full"><%= locale.get('page.pricing.level_0_btn') %></a>
+                        </div>
+                    </div>
+                    <div class="features">
+                        <h4><%= locale.get('page.pricing.planFeatures') %>:</h4>
+                        <ul class="list-style-none mt-5 p-0">
+                            <li><%= locale.get('page.pricing.allTools') %></li>
+                            <li><%= locale.get('page.pricing.limitedDocSize') %></li>
+                            <li><%= locale.get('page.pricing.limitedDocProcess') %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="price-wrapper w-full w-smd-12">
+                <div class="price-item plan-premium" data-month="<%= PLANS.lv_1.price.month %>" data-year="<%= PLANS.lv_1.price.year %>">
+                    <div>
+                        <div>
+                            <h3><%= locale.get('page.pricing.level_1') %></h3>
+                            <div>
+                                <div class="fs-16"><span class="price"><%= CURRENCY %><label><%= PLANS.lv_1.price.year / 12 %></label></span> / <%= locale.get('page.pricing.month') %></div>
+                                <div class="small"><%= locale.get('page.pricing.billedYearly', { price: CURRENCY + PLANS.lv_1.price.year }) %></div>
+                            </div>
+                        </div>
+                        <div class="act-box mt-20">
+                            <a href="<%= urlManager.get('upgrade') %>?b=yearly&t=1" class="btn btn-yellow fs-16 w-full"><%= locale.get('page.pricing.level_1_btn') %></a>
+                        </div>
+                    </div>
+                    <div class="features">
+                        <h4><%= locale.get('page.pricing.planFeatures') %>:</h4>
+                        <ul class="list-style-none mt-5 p-0">
+                            <li><%= locale.get('page.pricing.allTools') %></li>
+                            <li><%= locale.get('page.pricing.limitedDocSize') %></li>
+                            <li><%= locale.get('page.pricing.limitedDocProcess') %></li>
+                            <li><%= locale.get('page.pricing.workLargerDocSize') %></li>
+                            <li><%= locale.get('page.pricing.moreProcessTask') %></li>
+                            <li><%= locale.get('page.pricing.customerSupport') %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="price-wrapper w-full w-smd-12">
+                <div class="price-item plan-unlimited" data-month="<%= PLANS.lv_2.price.month %>" data-year="<%= PLANS.lv_2.price.year %>">
+                    <div>
+                        <div>
+                            <h3><%= locale.get('page.pricing.level_2') %></h3>
+                            <div>
+                                <div class="fs-16"><span class="price"><%= CURRENCY %><label><%= PLANS.lv_2.price.year / 12 %></label></span> / <%= locale.get('page.pricing.month') %></div>
+                                <div class="small"><%= locale.get('page.pricing.billedYearly', { price: CURRENCY + PLANS.lv_2.price.year }) %></div>
+                            </div>
+                        </div>
+                        <div class="act-box mt-20">
+                            <a href="<%= urlManager.get('upgrade') %>?b=yearly&t=2" class="btn btn-purple fs-16 w-full"><%= locale.get('page.pricing.level_1_btn') %></a>
+                        </div>
+                    </div>
+                    <div class="features">
+                        <h4><%= locale.get('page.pricing.planFeatures') %>:</h4>
+                        <ul class="list-style-none mt-5 p-0">
+                            <li><%= locale.get('page.pricing.allTools') %></li>
+                            <li><%= locale.get('page.pricing.unlimitedDocSize') %></li>
+                            <li><%= locale.get('page.pricing.unlimitedDocProcess') %></li>
+                            <li><%= locale.get('page.pricing.customerSupport') %></li>
+                            <!-- <li class="no">No Ads</li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="mb-30">
+            <div class="d-flex justify-content-center">
+                <h2 class="fs-24 fw-500"><%= locale.get('page.pricing.comparePlan') %></h2>
+            </div>
+
+            <div class="plan-compare-wrapper mt-30">
+                <div class="plan-compare list-group">
+                    <div class="list-group-row plan-table-th">
+                        <div class="list-group-column w-3 fs-22">
+                            <div class="pricing-bill mt-0">
+                                <div class="bill-wrapper">
+                                    <div class="bill" data-type="monthly" data-group="2"><%= locale.get('page.pricing.monthly') %></div>
+                                    <div class="bill bill-year active" data-type="yearly" data-group="2"><%= locale.get('page.pricing.yearly') %><div class="discount">-40%</div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-column w-full fs-20 price-item price-item-small" data-month="0" data-year="0">
+                            <div class="pb-10">
+                                <div>
+                                    <h3><%= locale.get('page.pricing.level_0') %></h3>
+                                    <div>
+                                        <div><span class="price"><%= CURRENCY %><label>0</label></span> / <%= locale.get('page.pricing.month') %></div>
+                                        <div class="small">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <div class="act-box mt-20">
+                                    <a href="<%= urlManager.get('index') %>" class="btn btn-blue fs-16 w-full"><%= locale.get('page.pricing.level_0_btn') %></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-column w-full fs-20 price-item price-item-small plan-premium" data-month="<%= PLANS.lv_1.price.month %>" data-year="<%= PLANS.lv_1.price.year %>">
+                            <div class="pb-10">
+                                <div>
+                                    <h3 class="__h3"><%= locale.get('page.pricing.level_1') %></h3>
+                                    <div>
+                                        <div><span class="price"><%= CURRENCY %><label><%= PLANS.lv_1.price.year / 12 %></label></span> / <%= locale.get('page.pricing.month') %></div>
+                                        <div class="small"><%= locale.get('page.pricing.billedYearly', { price: CURRENCY + PLANS.lv_1.price.year }) %></div>
+                                    </div>
+                                </div>
+                                <div class="act-box mt-20">
+                                    <a href="<%= urlManager.get('upgrade') %>?b=yearly&t=1" class="btn btn-yellow fs-16 w-full"><%= locale.get('page.pricing.level_1_btn') %></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-column w-full fs-20 price-item price-item-small plan-unlimited" data-month="<%= PLANS.lv_2.price.month %>" data-year="<%= PLANS.lv_2.price.year %>">
+                            <div class="pb-10">
+                                <div>
+                                    <h3><%= locale.get('page.pricing.level_2') %></h3>
+                                    <div>
+                                        <div><span class="price"><%= CURRENCY %><label><%= PLANS.lv_2.price.year / 12 %></label></span> / <%= locale.get('page.pricing.month') %></div>
+                                        <div class="small"><%= locale.get('page.pricing.billedYearly', { price: CURRENCY + PLANS.lv_2.price.year }) %></div>
+                                    </div>
+                                </div>
+                                <div class="act-box mt-20">
+                                    <a href="<%= urlManager.get('upgrade') %>?b=yearly&t=2" class="btn btn-purple fs-16 w-full"><%= locale.get('page.pricing.level_2_btn') %></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-row row-padding item-th">
+                        <%= locale.get('page.pricing.service') %>
+                    </div>
+                    <div class="list-group-row">
+                        <div class="list-group-column column-name w-3">
+                            <%= locale.get('page.pricing.tools') %>
+                        </div>
+                        <div class="list-group-column w-3 collapse" data-group="tools">
+                            <div class="collapse-btn">
+                                <%= locale.get('page.pricing.allTools') %>
+                            </div>
+                            <div class="collapse-desc">
+                                <% for (let item of tools) { %>
+                                    <div class="feature-item">
+                                        <div><%= locale.get('page.' + item.id + '.name') %></div>
+                                        <div><i class="__yes"></i></div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="list-group-column w-3 collapse" data-group="tools">
+                            <div class="collapse-btn">
+                                <%= locale.get('page.pricing.allTools') %>
+                            </div>
+                            <div class="collapse-desc">
+                                <% for (let item of tools) { %>
+                                    <div class="feature-item">
+                                        <div><%= locale.get('page.' + item.id + '.name') %></div>
+                                        <div><i class="__yes"></i></div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="list-group-column w-3 collapse" data-group="tools">
+                            <div class="collapse-btn">
+                                <%= locale.get('page.pricing.allTools') %>
+                            </div>
+                            <div class="collapse-desc">
+                                <% for (let item of tools) { %>
+                                    <div class="feature-item">
+                                        <div><%= locale.get('page.' + item.id + '.name') %></div>
+                                        <div><i class="__yes"></i></div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-row">
+                        <div class="list-group-column column-name w-3">
+                            <%= locale.get('page.pricing.filesizePerTask') %>
+                        </div>
+                        <div class="list-group-column w-3 collapse" data-group="process">
+                            <div class="collapse-btn">
+                                <%= locale.get('page.pricing.maxFileSizePerTask') %>
+                            </div>
+                            <div class="collapse-desc">
+                                <% for (let item of tools) { %>
+                                    <div class="feature-item">
+                                        <div><%= locale.get('page.' + item.id + '.name') %></div>
+                                        <div>
+                                            <% if (typeof (PLANS.lv_0.tools[item.id]) != 'undefined') { %>
+                                            <%= PLANS.lv_0.tools[item.id][1] %> <%= (PLANS.lv_0.tools[item.id][1] >= 1000 ? 'GB' : 'MB') %>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="list-group-column w-3 collapse" data-group="process">
+                            <div class="collapse-btn">
+                                <%= locale.get('page.pricing.maxFileSizePerTask') %>
+                            </div>
+                            <div class="collapse-desc">
+                                <% for (let item of tools) { %>
+                                    <div class="feature-item">
+                                        <div><%= locale.get('page.' + item.id + '.name') %></div>
+                                        <div>
+                                            <% if (typeof (PLANS.lv_1.tools[item.id]) != 'undefined') { %>
+                                            <%= PLANS.lv_1.tools[item.id][1] %> <%= (PLANS.lv_1.tools[item.id][1] >= 1000 ? 'GB' : 'MB') %>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="list-group-column w-3 collapse" data-group="process">
+                            <div class="collapse-btn">
+                                <%= locale.get('page.pricing.maxFileSizePerTask') %>
+                            </div>
+                            <div class="collapse-desc">
+                                <% for (let item of tools) { %>
+                                    <div class="feature-item">
+                                        <div><%= locale.get('page.' + item.id + '.name') %></div>
+                                        <div>
+                                            <% if (typeof (PLANS.lv_0.tools[item.id]) != 'undefined') { %>
+                                            <%= locale.get('page.pricing.unlimited') %>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-row">
+                        <div class="list-group-column column-name w-3">
+                            <%= locale.get('page.pricing.batchProcess') %>
+                        </div>
+                        <div class="list-group-column w-3 collapse" data-group="filesize">
+                            <div class="collapse-btn">
+                                <%= locale.get('page.pricing.maxFilesPerTask') %>
+                            </div>
+                            <div class="collapse-desc">
+                                <% for (let item of tools) { %>
+                                    <div class="feature-item">
+                                        <div><%= locale.get('page.' + item.id + '.name') %></div>
+                                        <div>
+                                            <% if (typeof (PLANS.lv_0.tools[item.id]) != 'undefined') { %>
+                                            <%= PLANS.lv_0.tools[item.id][0] %>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="list-group-column w-3 collapse" data-group="filesize">
+                            <div class="collapse-btn">
+                                <%= locale.get('page.pricing.maxFilesPerTask') %>
+                            </div>
+                            <div class="collapse-desc">
+                                <% for (let item of tools) { %>
+                                    <div class="feature-item">
+                                        <div><%= locale.get('page.' + item.id + '.name') %></div>
+                                        <div>
+                                            <% if (typeof (PLANS.lv_1.tools[item.id]) != 'undefined') { %>
+                                            <%= PLANS.lv_1.tools[item.id][0] %>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="list-group-column w-3 collapse" data-group="filesize">
+                            <div class="collapse-btn">
+                                <%= locale.get('page.pricing.maxFilesPerTask') %>
+                            </div>
+                            <div class="collapse-desc">
+                                <% for (let item of tools) { %>
+                                    <div class="feature-item">
+                                        <div><%= locale.get('page.' + item.id + '.name') %></div>
+                                        <div>
+                                            <% if (typeof (PLANS.lv_2.tools[item.id]) != 'undefined') { %>
+                                            <%= locale.get('page.pricing.unlimited') %>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-row row-padding item-th">
+                        <%= locale.get('page.pricing.devices') %>
+                    </div>
+                    <div class="list-group-row">
+                        <div class="list-group-column column-name w-3">
+                            Web
+                        </div>
+                        <div class="list-group-column w-3">
+                            <!-- <i class="__no"></i> -->
+                            <i class="__yes"></i>
+                        </div>
+                        <div class="list-group-column w-3">
+                            <i class="__yes"></i>
+                        </div>
+                        <div class="list-group-column w-3">
+                            <i class="__yes"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="list-group-row">
+                        <div class="list-group-column w-3"></div>
+                        <div class="list-group-column w-full">
+                            <a href="<%= urlManager.get('index') %>" class="btn btn-blue fs-16 wp-100 d-block"><%= locale.get('page.pricing.level_0_btn') %></a>
+                        </div>
+                        <div class="list-group-column w-full">
+                            <a href="<%= urlManager.get('upgrade') %>?b=yearly&t=1" class="btn btn-yellow fs-16 wp-100 d-block"><%= locale.get('page.pricing.level_1_btn') %></a>
+                        </div>
+                        <div class="list-group-column w-full">
+                            <a href="<%= urlManager.get('upgrade') %>?b=yearly&t=2" class="btn btn-purple fs-16 wp-100 d-block"><%= locale.get('page.pricing.level_2_btn') %></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="mb-30 pt-30">
+            <div class="card-box">
+                <div class="info-item">
+                    <h2 class="fs-22 fw-600 mb-10"><%= locale.get('page.pricing.pricingPlan') %></h2>
+                    <p class="desc">
+                        <%= locale.get('page.pricing.pricingDesc') %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="mb-30 pt-30">
+            <div class="text-center mb-30">
+                <h2 class="fs-32 wp-100"><%= locale.get('page.pricing.frequentlyAsk') %></h2>
+            </div>
+            <div class="faq-list">
+                <details open>
+                    <summary><%= locale.get('page.pricing.askQuestionTitle_1') %></summary>
+                    <p>
+                        <%= locale.get('page.pricing.askQuestionContent_1') %>
+                    </p>
+                </details>
+                <details>
+                    <summary><%= locale.get('page.pricing.askQuestionTitle_2') %></summary>
+                    <p>
+                        <%= locale.get('page.pricing.askQuestionContent_2') %>
+                    </p>
+                </details>
+                <details>
+                    <summary><%= locale.get('page.pricing.askQuestionTitle_3') %></summary>
+                    <p>
+                        <%= locale.get('page.pricing.askQuestionContent_3') %>
+                    </p>
+                </details>
+            </div>
+        </div>
+    </div>
+</div>

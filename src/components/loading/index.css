@@ -1,0 +1,47 @@
+/*! purgecss start ignore */
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.rotate-loading {
+    animation: rotation 1s linear infinite;
+    transition: all 350ms;
+    opacity: 0;
+}
+
+.rotate-loading.on {
+    opacity: 1;
+}
+
+.__loading_overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 350ms;
+    opacity: 0;
+    flex-direction: column;
+}
+
+.__loading_overlay span {
+    margin-top: 10px;
+    opacity: 0;
+}
+
+.__loading_overlay.on span {
+    opacity: 1;
+}
+
+.__loading_overlay.on {
+    opacity: 1;
+}
+/*! purgecss end ignore */

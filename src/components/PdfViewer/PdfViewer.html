@@ -1,0 +1,22 @@
+<div class="pv-app">
+    <div class="pv-toolbar<%= options.showToolbar ? '' : ' d-none' %>">
+        <%= toolbarHtml %>
+    </div>
+    <div class="pv-body">
+        <aside class="pv-sidebar" data-role="sidebar">
+            <div class="pv-sidebar-title">Pages</div>
+            <div class="pv-thumbs" data-role="thumbs"></div>
+        </aside>
+        <main class="pv-stage" data-role="stage">
+            <div class="pv-empty" data-role="empty">
+                <div class="pv-empty-icon">PDF</div>
+                <h2>Open a PDF to preview it</h2>
+                <p>Files stay in your browser while the viewer renders pages locally.</p>
+                <% if (canOpenFile) { %>
+                    <button class="btn btn-blue pv-empty-open" type="button" data-action="open">Choose PDF</button>
+                <% } %>
+            </div>
+            <div class="pv-pages" data-role="pages"></div>
+        </main>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<%= require("../layouts/main.html")({htmlWebpackPlugin}) %>
+
+<div class="section">
+    <div class="max-w-960 mx-auto">
+        <h1>Open Source</h1>
+        <p class="text-muted fs-18 mt-15"><%= APP_NAME %> is built on open-source software. This page explains where to find our frontend source code and the licenses that apply.</p>
+
+        <div class="info terms mt-50">
+            <h2>Online PDF Converter frontend source code</h2>
+            <p>The source code for the open-source <%= APP_NAME %> frontend is available on GitHub. The repository includes the project license and the materials published for building and modifying the frontend.</p>
+            <p class="mt-20">
+                <a href="https://github.com/OnlinePDFConverter/online-pdf-converter.com" target="_blank" rel="noopener" class="d-flex align-items-center">
+                    View source code on GitHub
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="img-24 ml-5"><path d="M280.5 426.5C214.5 418.5 168 371 168 309.5C168 284.5 177 257.5 192 239.5C185.5 223 186.5 188 194 173.5C214 171 241 181.5 257 196C276 190 296 187 320.5 187C345 187 365 190 383 195.5C398.5 181.5 426 171 446 173.5C453 187 454 222 447.5 239C463.5 258 472 283.5 472 309.5C472 371 425.5 417.5 358.5 426C375.5 437 387 461 387 488.5L387 540.5C387 555.5 399.5 564 414.5 558C505 523.5 576 433 576 321C576 179.5 461 64 319.5 64C178 64 64 179.5 64 321C64 432 134.5 524 229.5 558.5C243 563.5 256 554.5 256 541L256 501C249 504 240 506 232 506C199 506 179.5 488 165.5 454.5C160 441 154 433 142.5 431.5C136.5 431 134.5 428.5 134.5 425.5C134.5 419.5 144.5 415 154.5 415C169 415 181.5 424 194.5 442.5C204.5 457 215 463.5 227.5 463.5C240 463.5 248 459 259.5 447.5C268 439 274.5 431.5 280.5 426.5z"/></svg>
+                </a>
+            </p>
+
+            <h2>License</h2>
+            <p>Unless a file or bundled third-party component states otherwise, the source code in the repository is licensed under the <a href="https://github.com/OnlinePDFConverter/online-pdf-converter.com/blob/main/LICENSE" target="_blank" rel="noopener">GNU Affero General Public License version 3 only (AGPL-3.0-only)</a>.</p>
+            <p>You may use, study, copy, modify, and distribute covered code subject to the license terms. If you modify AGPL-covered software and make that modified version available for users to interact with over a network, you must offer those users the corresponding source code for that version as required by the AGPL.</p>
+
+            <h2>Scope of the repository</h2>
+            <p>The public repository covers the open-source frontend. Account management, payments, analytics services, hosted infrastructure, private configuration, and other service-backed features used by the hosted <%= APP_NAME %> service may be maintained separately and are not necessarily included in the repository.</p>
+            <p>The website may make ordinary network requests to load site resources or use optional online features. For supported document tools, the contents of selected files are processed locally in the browser as described in our <a href="<%= urlManager.get('privacy') %>">Privacy Policy</a> and <a href="<%= urlManager.get('security') %>">Security page</a>.</p>
+
+            <h2>Third-party software</h2>
+            <p><%= APP_NAME %> includes software from other open-source projects. Important document-processing components include:</p>
+            <ul>
+                <li><a href="https://www.ghostscript.com/" target="_blank" rel="noopener">Ghostscript</a> and the bundled Ghostscript WebAssembly integration — AGPL-3.0.</li>
+                <li><a href="https://pymupdf.io/" target="_blank" rel="noopener">PyMuPDF and MuPDF</a> — AGPL-3.0.</li>
+                <li><a href="https://github.com/ArtifexSoftware/pdf2docx" target="_blank" rel="noopener">pdf2docx</a> — AGPL-3.0.</li>
+                <li><a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">PDF.js</a> — Apache-2.0.</li>
+                <li><a href="https://pdf-lib.js.org/" target="_blank" rel="noopener">pdf-lib</a> — MIT.</li>
+                <li><a href="https://tesseract.projectnaptha.com/" target="_blank" rel="noopener">Tesseract.js</a> — Apache-2.0.</li>
+            </ul>
+            <p>Third-party components retain their own copyright notices and license terms. The applicable LICENSE and README files distributed with those components provide the controlling terms. Anyone redistributing a build is responsible for preserving required notices and providing the corresponding source and build materials required by the applicable licenses.</p>
+
+            <h2>Trademarks and branding</h2>
+            <p>Open-source licenses grant copyright permissions. They do not grant permission to use the <%= APP_NAME %> name, logo, domain name, or other branding in a way that suggests affiliation with, sponsorship by, or endorsement from the official <%= APP_NAME %> service. Modified and independently hosted versions should identify themselves clearly.</p>
+
+            <h2>No warranty</h2>
+            <p>The open-source software is provided without warranty, to the extent permitted by applicable law. Review the AGPL and the applicable third-party licenses for the complete warranty disclaimers and limitation-of-liability terms.</p>
+        </div>
+    </div>
+</div>

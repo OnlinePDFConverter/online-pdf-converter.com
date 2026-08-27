@@ -1,0 +1,164 @@
+<div id="header" class="header">
+    <div class="header-body max-w-2k mx-auto">
+        <div class="logo">
+            <a href="<%= urlManager.get('index') %>" class="d-flex align-items-center flex-nowrap hover-none-underline ">
+                <img src="<%= ASSETS_URL %>images/logo.png<%= ASSETS_VER %>" alt="<%= APP_NAME %>" />
+                <div class="web-info ml-10">
+                    <div class="web-name"><%= APP_NAME %></div>
+                </div>
+            </a>
+        </div>
+        <div class="menus">
+            <ul class="navs">
+                <li class="nav-item">
+                    <a href="<%= urlManager.get('index') %>"><%= locale.get('page.index.name') %></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/" class="nav-item-title">
+                        <%= locale.get('organize') %>
+                    </a>
+                    <i class="nav-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="16" height="16"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
+                    </i>
+                    <ul class="navs-dropdown nav-item-child">
+                        <% toolCategories.organize.forEach(id => { %>
+                            <% const tool = tools.get(id); %>
+                            <% if (tool) { %>
+                            <li>
+                                <a href="<%= urlManager.get(id) %>"><i><img src="<%= tool.icon %>" /></i><%= tool.name %></a>
+                            </li>
+                            <% } %>
+                        <% }) %>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/" class="nav-item-title">
+                        <%= locale.get('optimize') %>
+                    </a>
+                    <i class="nav-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="16" height="16"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
+                    </i>
+                    <ul class="navs-dropdown nav-item-child">
+                        <% toolCategories.optimize.forEach(id => { %>
+                            <% const tool = tools.get(id); %>
+                            <% if (tool) { %>
+                            <li>
+                                <a href="<%= urlManager.get(id) %>"><i><img src="<%= tool.icon %>" /></i><%= tool.name %></a>
+                            </li>
+                            <% } %>
+                        <% }) %>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/" class="nav-item-title">
+                        <%= locale.get('convert') %>
+                    </a>
+                    <i class="nav-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="16" height="16"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
+                    </i>
+                    <ul class="navs-dropdown nav-item-child nav-item-child-group">
+                        <li>
+                            <ul>
+                                <li class="head-group-title"><%= locale.get('convertFromPDF') %></li>
+                                <% toolCategories.convertFromPDF.forEach(id => { %>
+                                    <% const tool = tools.get(id); %>
+                                    <% if (tool) { %>
+                                        <li>
+                                            <a href="<%= urlManager.get(id) %>"><i><img src="<%= tool.icon %>" /></i><%= tool.name %></a>
+                                        </li>
+                                    <% } %>
+                                <% }) %>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li class="head-group-title"><%= locale.get('convertToPDF') %></li>
+                                <% toolCategories.convertToPDF[0].forEach(id => { %>
+                                    <% const tool = tools.get(id); %>
+                                    <% if (tool) { %>
+                                        <li>
+                                            <a href="<%= urlManager.get(id) %>"><i><img src="<%= tool.icon %>" /></i><%= tool.name %></a>
+                                        </li>
+                                    <% } %>
+                                <% }) %>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li class="head-group-title mt-0 mb-md-0"></li>
+                                <% toolCategories.convertToPDF[1].forEach(id => { %>
+                                    <% const tool = tools.get(id); %>
+                                    <% if (tool) { %>
+                                        <li>
+                                            <a href="<%= urlManager.get(id) %>"><i><img src="<%= tool.icon %>" /></i><%= tool.name %></a>
+                                        </li>
+                                    <% } %>
+                                <% }) %>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/" class="nav-item-title">
+                        <%= locale.get('edit') %>
+                    </a>
+                    <i class="nav-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="16" height="16"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
+                    </i>
+                    <ul class="navs-dropdown nav-item-child">
+                        <% toolCategories.edit.forEach(id => { %>
+                            <% const tool = tools.get(id); %>
+                            <% if (tool) { %>
+                                <li>
+                                    <a href="<%= urlManager.get(id) %>"><i><img src="<%= tool.icon %>" /></i><%= tool.name %></a>
+                                </li>
+                            <% } %>
+                        <% }) %>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/" class="nav-item-title">
+                        <%= locale.get('secure') %>
+                    </a>
+                    <i class="nav-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="16" height="16"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
+                    </i>
+                    <ul class="navs-dropdown nav-item-child">
+                        <% toolCategories.secure.forEach(id => { %>
+                            <% const tool = tools.get(id); %>
+                            <% if (tool) { %>
+                                <li>
+                                    <a href="<%= urlManager.get(id) %>"><i><img src="<%= tool.icon %>" /></i><%= tool.name %></a>
+                                </li>
+                            <% } %>
+                        <% }) %>
+                    </ul>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="<%= urlManager.get('pricing') %>" class="nav-item-title"><%= locale.get('page.pricing.name') %></a>
+                </li>
+            </ul>
+        </div>
+        <div class="extitems-box">
+            <div class="__select language d-hide">
+                <% for(let i = 0; i < I18N.length; i++) { %>
+                    <% if (locale.langCode == I18N[i].code) { %>
+                        <div class="__selected"><%= I18N[i].name %></div>
+                    <% 
+                        break;
+                    }
+                    %>
+                <% } %>
+            </div>
+            <select id="language" class="select d-hide">
+                <% for(let i = 0; i < I18N.length; i++) { %>
+                    <option value="<%= I18N[i].code %>" data-url="<%= I18N[i].url %>" <% if (locale.langCode == I18N[i].code) { %>selected="selected"<% } %>><%= I18N[i].name %></option>
+                <% } %>
+            </select>
+        </div>
+    </div>
+    <div class="responsive-menus">
+        <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M64 256h896c38.4 0 64-25.6 64-64s-25.6-64-64-64H64c-38.4 0-64 25.6-64 64s25.6 64 64 64z m896 192H64c-38.4 0-64 25.6-64 64s25.6 64 64 64h896c38.4 0 64-25.6 64-64s-25.6-64-64-64z m0 320H64c-38.4 0-64 25.6-64 64s25.6 64 64 64h896c38.4 0 64-25.6 64-64s-25.6-64-64-64z"></path></svg>
+    </div>
+</div>

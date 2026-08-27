@@ -1,0 +1,15 @@
+<IfModule mod_headers.c>
+    Header always set Content-Security-Policy "frame-ancestors 'self'"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    SetEnvIfNoCase Request_URI "(^|/)(compress-pdf|epub-to-pdf|xps-to-pdf|pdf-to-pdfa|pdf-to-word|pdf-to-excel|pdf-to-ppt|word-to-pdf|excel-to-pdf|ppt-to-pdf)(\.html)?($|\?)" cross_origin_isolation_tools=1
+    Header always set Cross-Origin-Opener-Policy "same-origin" env=cross_origin_isolation_tools
+    Header always set Cross-Origin-Embedder-Policy "require-corp" env=cross_origin_isolation_tools
+    Header always set Cross-Origin-Resource-Policy "cross-origin" env=cross_origin_isolation_tools
+ </IfModule>
+ 
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^([^.]+)$ $1.html [NC,L]
+</IfModule>

@@ -1,0 +1,1 @@
+import './word_to_pdf.worker.js';

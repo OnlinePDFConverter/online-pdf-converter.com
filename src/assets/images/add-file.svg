@@ -1,0 +1,38 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- File body -->
+  <path
+    d="M48 24H96L120 48V122C120 130.837 112.837 138 104 138H48C39.1634 138 32 130.837 32 122V40C32 31.1634 39.1634 24 48 24Z"
+    fill="#BDD8CC"
+  />
+
+  <!-- Folded corner -->
+  <path
+    d="M96 24V44C96 46.2091 97.7909 48 100 48H120L96 24Z"
+    fill="#6FAF9B"
+  />
+
+  <!-- Table cells -->
+  <rect x="54" y="68" width="18" height="10" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="82" y="68" width="18" height="10" rx="2" fill="white" fill-opacity="0.85"/>
+
+  <rect x="54" y="88" width="18" height="10" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="82" y="88" width="18" height="10" rx="2" fill="white" fill-opacity="0.85"/>
+
+  <rect x="54" y="108" width="18" height="10" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="82" y="108" width="18" height="10" rx="2" fill="white" fill-opacity="0.85"/>
+
+  <!-- Plus circle -->
+  <circle cx="114" cy="116" r="22" fill="#176B57"/>
+  <circle cx="114" cy="116" r="22" fill="url(#paint0_linear)" fill-opacity="0.25"/>
+
+  <!-- Plus sign -->
+  <rect x="111" y="104" width="6" height="24" rx="3" fill="white"/>
+  <rect x="102" y="113" width="24" height="6" rx="3" fill="white"/>
+
+  <defs>
+    <linearGradient id="paint0_linear" x1="96" y1="98" x2="130" y2="134" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="#0E4F40"/>
+    </linearGradient>
+  </defs>
+</svg>

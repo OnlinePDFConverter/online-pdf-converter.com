@@ -1,0 +1,47 @@
+<%
+const tool = 'webp_to_pdf';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/converter.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.webp',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFiles'),
+    chooseText: locale.get('button.chooseImages'),
+    enableSettings: true
+}) %>
+
+<div>
+    <div>
+        <span class="label"><%= locale.get('page.images_to_pdf.pageSize') %></span>
+        <select class="input input-border" data-images-pdf-page-size>
+            <option value="A4" selected>A4</option>
+            <option value="LETTER"><%= locale.get('page.images_to_pdf.pageSizeLetter') %></option>
+            <option value="LEGAL"><%= locale.get('page.images_to_pdf.pageSizeLegal') %></option>
+            <option value="A3">A3</option>
+            <option value="A5">A5</option>
+            <option value="FIT"><%= locale.get('page.images_to_pdf.pageSizeFit') %></option>
+        </select>
+    </div>
+    <div class="mt-25">
+        <span class="label"><%= locale.get('page.images_to_pdf.orientation') %></span>
+        <select class="input input-border" data-images-pdf-orientation>
+            <option value="auto"><%= locale.get('page.images_to_pdf.orientationAuto') %></option>
+            <option value="portrait" selected><%= locale.get('page.images_to_pdf.orientationPortrait') %></option>
+            <option value="landscape"><%= locale.get('page.images_to_pdf.orientationLandscape') %></option>
+        </select>
+    </div>
+    <div class="mt-25">
+        <span class="label"><%= locale.get('page.images_to_pdf.margin') %></span>
+        <select class="input input-border" data-images-pdf-margin>
+            <option value="0"><%= locale.get('page.images_to_pdf.marginNone') %></option>
+            <option value="18"><%= locale.get('page.images_to_pdf.marginSmall') %></option>
+            <option value="36" selected><%= locale.get('page.images_to_pdf.marginMedium') %></option>
+            <option value="72"><%= locale.get('page.images_to_pdf.marginLarge') %></option>
+        </select>
+    </div>
+</div>

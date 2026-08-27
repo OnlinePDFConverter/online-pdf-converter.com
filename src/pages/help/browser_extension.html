@@ -1,0 +1,74 @@
+﻿<%= require("../layouts/main.html")({htmlWebpackPlugin}) %>
+<%
+const extensionPage = locale.get('page.browserExtension');
+const extensionScreenshots = [
+    '1280x800_1.webp',
+    '1280x800_2.webp',
+    '1280x800_3.webp',
+    '1280x800_4.webp',
+    '1280x800_5.webp'
+];
+%>
+
+<style>
+.browser-extension-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+.browser-extension-shot {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+.browser-extension-shot:first-child {
+    grid-column: 1 / -1;
+}
+@media (max-width: 768px) {
+    .browser-extension-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<div class="section">
+    <div class="max-w-960 mx-auto">
+        <h1 class="text-center"><%= extensionPage.heroTitle %></h1>
+        <p class="text-muted fs-18 mt-15 text-center"><%= extensionPage.heroDesc %></p>
+        <div class="mt-30 d-flex gap-15 flex-wrap justify-content-center">
+            <a href="<%= EXTENSION.chrome %>" target="_blank" rel="noopener" title="<%= extensionPage.chromeInstallButton %>"><img src="<%= ASSETS_URL %>images/ext/chrome_web_store_border.png" loading="lazy" class="h-58" alt="<%= extensionPage.chromeInstallButton %>" /></a>
+            <a href="<%= EXTENSION.edge %>" target="_blank" rel="noopener" title="<%= extensionPage.edgeInstallButton %>"><img src="<%= ASSETS_URL %>images/ext/edge_web_store.png" loading="lazy" class="h-58" alt="<%= extensionPage.edgeInstallButton %>" /></a>
+            <a href="<%= EXTENSION.firefox %>" target="_blank" rel="noopener" title="<%= extensionPage.firefoxInstallButton %>"><img src="<%= ASSETS_URL %>images/ext/firefox_web_store.png" loading="lazy" class="h-58" alt="<%= extensionPage.firefoxInstallButton %>" /></a>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="max-w-960 mx-auto browser-extension-gallery">
+        <% extensionScreenshots.forEach(function(imageName, index) { %>
+            <img class="browser-extension-shot" src="<%= ASSETS_URL %>images/ext/<%= imageName %><%= ASSETS_VER %>" loading="lazy" alt="<%= extensionPage.name %> screenshot <%= index + 1 %>">
+        <% }); %>
+    </div>
+</div>
+
+<div class="section">
+    <div class="max-w-960 mx-auto">
+        <div class="d-flex gap-25 align-items-start">
+            <div class="card p-30 w-full">
+                <h2><%= extensionPage.howToUse %></h2>
+                <div class="d-grid gap-15 mt-15">
+                    <% extensionPage.howToUseItems.forEach(function(item, index) { %>
+                        <div class="card card-blue-light p-20">
+                            <span class="fw-700"><%= index + 1 %>. <%= item.title %></span>
+                            <p class="text-muted mt-5"><%= item.desc %></p>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

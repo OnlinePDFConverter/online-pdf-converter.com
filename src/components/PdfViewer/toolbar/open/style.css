@@ -1,0 +1,19 @@
+.pv-file-input {
+    display: none;
+}
+
+.pv-file-name {
+    max-width: 210px;
+    color: var(--pv-text);
+    font-size: 13px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+    .pv-file-name {
+        max-width: 145px;
+    }
+}

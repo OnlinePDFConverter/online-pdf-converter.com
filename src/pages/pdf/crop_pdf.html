@@ -1,0 +1,85 @@
+<%
+const tool = 'crop_pdf';
+const plan = PLANS.lv_0.tools[tool];
+const maxFiles = plan[0];
+const maxSize = plan[1];
+%>
+<%= require("../layouts/viewer.html")({
+    htmlWebpackPlugin,
+    tool,
+    fileTypes: '.pdf',
+    maxFiles,
+    maxSize,
+    dropText: locale.get('upload.dropFile'),
+    chooseText: locale.get('button.choosePDFFile'),
+    enableSettings: true
+}) %>
+
+<div class="crop-settings" data-crop-settings>
+    <div class="crop-settings-section">
+        <div class="crop-fields-grid">
+            <label class="crop-field">
+                <span><%= locale.get('page.crop_pdf.width') %></span>
+                <div class="crop-input-unit">
+                    <input class="input input-sm input-border" type="number" min="1" step="1" data-crop-input="width">
+                    <span>px</span>
+                </div>
+            </label>
+            <label class="crop-field">
+                <span><%= locale.get('page.crop_pdf.height') %></span>
+                <div class="crop-input-unit">
+                    <input class="input input-sm input-border" type="number" min="1" step="1" data-crop-input="height">
+                    <span>px</span>
+                </div>
+            </label>
+            <label class="crop-field">
+                <span><%= locale.get('page.crop_pdf.positionX') %></span>
+                <div class="crop-input-unit">
+                    <input class="input input-sm input-border" type="number" min="0" step="1" data-crop-input="x">
+                    <span>px</span>
+                </div>
+            </label>
+            <label class="crop-field">
+                <span><%= locale.get('page.crop_pdf.positionY') %></span>
+                <div class="crop-input-unit">
+                    <input class="input input-sm input-border" type="number" min="0" step="1" data-crop-input="y">
+                    <span>px</span>
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <fieldset class="crop-settings-section crop-ratio-fieldset">
+        <div class="crop-ratio-grid">
+            <% [
+                ['16:9', '16:9'],
+                ['4:3', '4:3'],
+                ['3:4', '3:4'],
+                ['1:1', '1:1'],
+                ['custom', locale.get('page.crop_pdf.custom')]
+            ].forEach(([value, label]) => { %>
+                <label class="crop-ratio-option<%= value === 'custom' ? ' crop-ratio-custom' : '' %>">
+                    <input type="radio" name="crop-ratio" value="<%= value %>"<%= value === 'custom' ? ' checked' : '' %>>
+                    <span><%= label %></span>
+                </label>
+            <% }); %>
+        </div>
+    </fieldset>
+
+    <fieldset class="crop-settings-section crop-scope-fieldset">
+        <label class="option-radio crop-scope-option">
+            <input type="radio" name="crop-scope" value="current" checked>
+            <span>
+                <strong class="label"><%= locale.get('page.crop_pdf.currentPage') %></strong>
+                <small><%= locale.get('page.crop_pdf.currentPageDesc') %></small>
+            </span>
+        </label>
+        <label class="option-radio crop-scope-option mt-10">
+            <input type="radio" name="crop-scope" value="all">
+            <span>
+                <strong class="label"><%= locale.get('page.crop_pdf.allPages') %></strong>
+                <small><%= locale.get('page.crop_pdf.allPagesDesc') %></small>
+            </span>
+        </label>
+    </fieldset>
+</div>

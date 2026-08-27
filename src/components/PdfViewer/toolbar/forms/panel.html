@@ -1,0 +1,23 @@
+<div id="<%= panelId %>" class="pv-forms-secondary-toolbar" data-forms-toolbar role="toolbar"
+    aria-label="<%= fieldsLabel %>" hidden>
+    <% tools.forEach(function(tool) { %>
+        <button class="pv-forms-tool" type="button" data-form-tool="<%= tool.type %>" title="<%= tool.label %>" aria-pressed="false">
+            <span class="pv-forms-tool-icon"><%= icon[tool.type] %></span>
+            <span><%= tool.label %></span>
+        </button>
+    <% }); %>
+    <span class="pv-forms-toolbar-divider" aria-hidden="true"></span>
+    <button class="pv-forms-tool pv-forms-grid-toggle" type="button" data-form-grid title="<%= gridLabel %>" aria-pressed="false">
+        <span class="pv-forms-tool-icon"><%= icon.grid %></span>
+        <span><%= gridLabel %></span>
+    </button>
+    <label class="pv-forms-grid-size" title="<%= gridSizeLabel %>">
+        <input type="number" min="2" max="14" value="2" data-form-grid-columns aria-label="<%= gridColumns %>">
+        <span>×</span>
+        <input type="number" min="2" max="14" value="2" data-form-grid-rows aria-label="<%= gridRows %>">
+    </label>
+    <button class="pv-forms-tool pv-forms-clear" type="button" data-form-clear title="<%= clearAll %>">
+        <span class="pv-forms-tool-icon"><%= icon.clear %></span>
+        <span><%= clearAll %></span>
+    </button>
+</div>
